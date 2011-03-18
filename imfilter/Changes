@@ -1,0 +1,9 @@
+26 June 2001: [v0.1.0]
+	Ported to RedHat Linux
+
+23 August 2001: [v0.1.1]
+	imfilter.h:  Fix wrong definition for BOXCAR
+	initbx.c: Include stdlib.h
+
+15 November 2001: [v0.1.2]
+	Fix Makefile.  Install section wasn't creating directories.

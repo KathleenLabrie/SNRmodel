@@ -16,14 +16,15 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
-OS = redhat
-PREFIX = /home/labrie/prgc
+OS = macosx
+PREFIX = /Users/klabrie/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
-EPREFIX = $(PREFIX)/img/imfilter
+EPREFIX = $(PREFIX)
 LPREFIX = $(EPREFIX)
 IPREFIX = $(EPREFIX)
+SPREFIX = $(EPREFIX)/packages
 
 #### Compiler Variable Definitions ####
 CC = gcc
@@ -36,7 +37,7 @@ PKGNAME = imfilter
 BASIC_FILES = Makefile Changes TODO
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).1.2
+RELEASE = $(VERSION).1.3
 
 #### Object Definitions ####
 OBJ_FILTER = boxcar.o dobx.o filter.o initbx.o
@@ -65,11 +66,26 @@ filter: $(OBJ_FILTER)
 all : main
 
 ## Installing ##
-.PHONY: $(BINS_INSTALL)
+.PHONY: $(BINS_INSTALL) install-src
 install : $(BINS_INSTALL)
 $(BINS_INSTALL):
-	install -d -m 0755 $(EPREFIX)
-	install -m 0755 $(subst install_,,$@) $(EPREFIX)/
+	@install -d -m 0755 $(EPREFIX)/bin
+	@install -m 0755 $(subst install_,,$@) $(EPREFIX)/bin/
+
+install-src:
+	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
+	@for src in $(SRCS) ; do \
+	  install -m 0644 $$src $(SPREFIX)/$(PKGNAME)/; \
+	done
+	@for file in $(HEADERS) ; do \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
+	done
+	@for file in $(BASIC_FILES) ; do \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
+	done
+	@for file in $(DOCS) ; do \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
+	done
         
 ## Packaging ##
 package-src:

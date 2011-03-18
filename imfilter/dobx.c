@@ -1,5 +1,5 @@
 /* Function: dobx */
-/* Version: 0.1.0 */
+/* Version: 0.1.1 */
 /*   Do the boxcar filtering
  *
  *Needs:
@@ -18,7 +18,8 @@
 int dobx(char image[], char new_image[], TBOXCAR *param, char logfile[])
 {
  int status,ii,jj;
- unsigned long naxes[2], npts;
+ long naxes[2];
+ unsigned long npts;
  double **ppoints;
  double **ppix=NULL, **pmask=NULL, **pnew=NULL;
  char message[MAXLENGTH];

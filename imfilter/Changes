@@ -7,3 +7,5 @@
 
 15 November 2001: [v0.1.2]
 	Fix Makefile.  Install section wasn't creating directories.
+17 May 2006: [v0.1.3]
+	Sorted out the Makefile a bit.  Fix up the 'unsigned long' conflicts.

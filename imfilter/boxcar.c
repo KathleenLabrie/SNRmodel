@@ -4,7 +4,7 @@
  *   across the image, being small near the edges and growing to maximum
  *   size towards the center.  Clipping and masking can be done.
  *
- * int boxcar( double **ppix, double **pmask, unsigned long naxes[], 
+ * int boxcar( double **ppix, double **pmask, long naxes[], 
  *                 VBOX *vbpar, CLIP *cpar, > double ***pnew )
  *
  * Arguments:
@@ -64,7 +64,7 @@
 #include <stddef.h>
 #include <math.h>
 
-int boxcar( double **ppix, double **pmask, unsigned long naxes[], 
+int boxcar( double **ppix, double **pmask, long naxes[], 
                  VBOX *vbpar, CLIP *cpar, double ***pnew )
 {
  int iter,niter;

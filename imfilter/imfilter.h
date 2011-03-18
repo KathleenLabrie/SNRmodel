@@ -24,7 +24,7 @@ typedef struct
 } TBOXCAR;
 
 
-int boxcar( double **ppix, double **pmask, unsigned long naxes[], 
+int boxcar( double **ppix, double **pmask, long naxes[], 
                  VBOX *vbpar, CLIP *cpar, double ***pnew );
 int dobx(char image[], char new_image[], TBOXCAR *param, char logfile[]);
 int initbx( char file[], TBOXCAR *param );

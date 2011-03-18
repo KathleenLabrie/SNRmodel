@@ -1,5 +1,5 @@
 /* Main : apphot */
-/* Version: 0.1.0 */
+/* Version: 0.1.1 */
 /*   Aperture photometry.  Apertures can be circular or elliptical.
  *
  * Usage: apphot [-v] images [-o output -p paramfile]

@@ -1,4 +1,4 @@
 - This package needs some reorganization.
-- Write a real test.  fakeimg just creates a fake image.  I need a test 
+- Write a real test.  fakeimg just creates a fake image.  I need a test
   that will actually test the phot tasks.
 - Use UNAME to set OS.

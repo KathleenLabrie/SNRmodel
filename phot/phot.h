@@ -59,6 +59,7 @@ typedef struct
  int res_ncoo,res_nradii,**res_npix,*res_nskypix;
  double *res_skyperpix,*res_skystddev;
  double **res_totalflux, **res_error, *res_radii;
+ double **res_apstddev;
  double **res_mag,**res_merr,**res_fluxsec;
 } RESULTS;
 
@@ -67,11 +68,14 @@ void alloc_results( RESULTS *strct );
 void free_results( RESULTS *strct );
 
 /* rd_param */
-int assign_double_param( char *pstr, double *param );
-int assign_str_param( char *pstr, char param[] );
+int phot_assign_double_param( char *pstr, double *param );
+int phot_assign_int_param( char *pstr, int *param );
+int phot_assign_str_param( char *pstr, char param[] );
 int rd_apphot_param( FILE *istream, APPHOTPARS *pars );
 int rd_data_param( FILE *istream, DATAPARS *pars );
-int warn_unknown_param( char line[] );
+int rd_fitsky_param ( FILE *istream, FITSKYPARS *pars );
+int rd_phot_param ( FILE *istream, PHOTPARS *pars );
+int phot_warn_unknown_param( char line[] );
 
 
 int aptotflux(double **ppix, long int naxes[], double **pcoo, int idcoo,

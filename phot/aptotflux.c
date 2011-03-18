@@ -1,5 +1,5 @@
 /* Function: aptotflux */
-/* Version: 0.1.0 */
+/* Version: 0.1.1 */
 /*   Compute total flux within aperture 
  *
  * int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
@@ -25,6 +25,7 @@ int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
  double x0,y0,xmin,xmax,ymin,ymax;
  double dr2,dx,dy,theta;
  double r2,a2,b2,pa,top,alpha;
+ double apsumsq,apsum;
  char debug_file[MAXLENGTH];
  FILE *debug_pixused,*debug_allpix;
 
@@ -53,6 +54,7 @@ int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
    if (xmax >= naxes[0]) { xmax = naxes[0]-1; }
    if (ymin < 0) { ymin=0; }
    if (ymax >= naxes[1]) { ymax = naxes[1]-1; }
+   apsumsq=apsum=0;
    for (jj=(long int)ymin; jj<=(long int)ymax; jj++) {
      for (ii=(long int)xmin; ii<=(long int)xmax; ii++) {
        /* rejection */
@@ -69,6 +71,8 @@ int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
 	  if (dr2<=r2+DBL_EPSILON) {
             n++;
             res->res_totalflux[i][idcoo] += *(*(ppix+jj)+ii) - res->res_skyperpix[idcoo];
+	    apsumsq += *(*(ppix+jj)+ii) * *(*(ppix+jj)+ii);
+	    apsum += *(*(ppix+jj)+ii);
 	    if (FLAGS & 1<<DEBUG) { fprintf(debug_pixused,"%d  %d\n",ii+1,jj+1);}
 	  }
        }
@@ -84,6 +88,9 @@ int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
    	     (double)res->res_npix[i][idcoo]*pow(res->res_skystddev[idcoo],2) +
 	     pow((double)res->res_npix[i][idcoo],2)*
 	     pow(res->res_skystddev[idcoo],2)/(double)res->res_nskypix[idcoo]);
+   res->res_apstddev[i][idcoo] = 
+   	sqrt(( apsumsq - (1./(double)res->res_npix[i][idcoo]) * apsum*apsum ) /
+	((double)res->res_npix[i][idcoo] - 1.));
  }
 
  return(status);

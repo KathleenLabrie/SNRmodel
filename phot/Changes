@@ -7,11 +7,23 @@
 30 June 2002: [v0.3.0]
 	Upgraded 'abscalib'. rd_set_double had changed.
 	Added 'redcor' and related routines to the package.
+09 Sep 2002: [v0.3.1]
+	Added calculation of aperture stddev in 'aptotflux'.
+	Added the creation of a library of some of the phot functions.
+-----
+Branch (a funny way to say I screwed up)
 17 May 2006: [v0.3.1]
-	Re-arrange installation path.  Add include statements for gcc 4.0.
+    Re-arrange installation path.  Add include statements for gcc 4.0.
 22 May 2006: [v0.3.2]
-	Use HOME to set PREFIX. Unable to use UNAME to set OS, yet; added
-	to TODO.
+    Use HOME to set PREFIX. Unable to use UNAME to set OS, yet; added
+    to TODO.
 23 May 2006: [v0.3.3]
-	Add install-devel rule to install phot.h.  This is used by other
-	software (e.g. fitsnrdist package).
+    Add install-devel rule to install phot.h.  This is used by other
+    software (e.g. fitsnrdist package).
+-----
+Main trunk
+23 May 2006: [v0.3.4]
+    - Merge branch to real v0.3.1.  The real v0.3.1 was in the devel directory
+      used when was simulating SNR populations for the thesis.
+    - Remove the changes done in v0.3.3 as they are obviously unnecessary
+      since the 'true' v0.3.1 creates a library and all.

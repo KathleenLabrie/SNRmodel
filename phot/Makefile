@@ -40,10 +40,10 @@ BASIC_FILES = Makefile Changes TODO apphot.param data.param fitsky.param \
 FILTERS = cfh5103c_approx.dat cfh5201c_approx.dat
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).3.3
+RELEASE = $(VERSION).3.4
 
 #### Object Definitions ####
-OBJ_PHOT = rd_param.o rd_coords.o phot.o mag.o
+OBJ_PHOT = phot_rd_param.o rd_coords.o phot.o mag.o
 OBJ_APPHOT = apphot.o fitsky.o aptotflux.o print_result.o skyvalue.o
 OBJ_ABSCALIB = abscalib.o
 OBJ_REDCOR = redcor.o filterID.o get_transmission.o int_correction.o \
@@ -58,6 +58,8 @@ LIBS_APPHOT = -L$(LIBDIR) $(LIBS_FITSIO) -lKLstats -lKLsort $(LIBS_COMMON)
 LIBS_ABSCALIB = -L$(LIBDIR) -lKLfile -lKLinter $(LIBS_COMMON)
 LIBS_REDCOR = -L$(LIBDIR) -lKLfile $(LIBS_COMMON)
 
+OBJ_LIB = $(OBJ_PHOT) fitsky.o aptotflux.o skyvalue.o
+
 #### Test suite ####
 TEST_FILES = cfh5002.dat fakeimg.coo fakeimg.fits
 TEST_OBJ = fakeimg.o
@@ -69,7 +71,7 @@ TEST_LIBS = -L$(LIBDIR) $(LIBS_FITSIO) $(LIBS_COMMON)
 %.o : %.c
 	$(CC) -c $(CFLAGS) $<
 
-main : configure $(OBJECTS) $(BINS)
+main : configure $(OBJECTS) lib$(PKGNAME).a $(BINS)
 
 configure:
 # configure phot.h
@@ -82,6 +84,11 @@ configure:
 	  echo "Error configuring $(PKGNAME).h"; \
 	fi
 	@echo "done"
+
+.PHONY: lib$(PKGNAME).a
+lib$(PKGNAME).a : $(OBJ_LIB)
+	ar cr lib$(PKGNAME).a $(OBJ_LIB)
+	ranlib lib$(PKGNAME).a
 
 .PHONY: $(BINS)
 apphot: $(OBJ_APPHOT) $(HEADERS)
@@ -111,10 +118,10 @@ install:
 	@for filter in $(FILTERS) ; do \
 	  install -m 0644 $$filter $(EPREFIX)/bin/filters; \
 	done
-
-install-devel:
+	@install -d -m 0755 $(LPREFIX)/lib
+	@install -m 0644 lib$(PKGNAME).a $(LPREFIX)/lib/
 	@install -d -m 0755 $(IPREFIX)/include
-	@install -m 0644 phot.h $(IPREFIX)/include/
+	@install -m 0644 $(PKGNAME).h $(IPREFIX)/include/
 
 install-src:
 	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
@@ -150,6 +157,6 @@ package-src:
 ## Cleaning ##
 .PHONY: clean
 clean:
-	\rm -f $(OBJECTS) $(BINS) $(TEST_OBJ) $(TEST_BINS)
+	\rm -f $(OBJECTS) $(BINS) lib$(PKGNAME).a $(TEST_OBJ) $(TEST_BINS)
 
 ### End of Makefile ###

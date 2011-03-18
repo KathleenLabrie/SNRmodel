@@ -14,6 +14,7 @@ void alloc_results( RESULTS *strct )
  strct->res_totalflux = dmatrixc(strct->res_nradii,strct->res_ncoo);
  strct->res_error = dmatrix(strct->res_nradii,strct->res_ncoo);
  strct->res_radii = dvector(strct->res_nradii);
+ strct->res_apstddev = dmatrix(strct->res_nradii,strct->res_ncoo);
  strct->res_fluxsec = dmatrix(strct->res_nradii,strct->res_ncoo);
  strct->res_mag = dmatrix(strct->res_nradii,strct->res_ncoo);
  strct->res_merr = dmatrix(strct->res_nradii,strct->res_ncoo);
@@ -31,6 +32,7 @@ void free_results( RESULTS *strct )
  free_dmatrix(strct->res_totalflux);
  free_dmatrix(strct->res_error);
  free_dvector(strct->res_radii);
+ free_dmatrix(strct->res_apstddev);
  free_dmatrix(strct->res_fluxsec);
  free_dmatrix(strct->res_mag);
  free_dmatrix(strct->res_merr);

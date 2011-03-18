@@ -10,7 +10,7 @@ typedef struct
 {
  int artimg_rmvbkg;
  int artimg_nexp;
- unsigned long int artimg_naxes[2];
+ long int artimg_naxes[2];
  double artimg_distance,artimg_x0,artimg_y0,artimg_fluxcalib;
  double artimg_seeing,artimg_psfwidth,artimg_skybkg,artimg_exptime;
  double artimg_pixscale,artimg_gain,artimg_rdnoise,artimg_xnoise;

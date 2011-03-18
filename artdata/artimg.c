@@ -62,7 +62,7 @@ char *argv[];
 {
  int i,exp, FLAGS, status=0;
  int npop,pop,nsnrpop=0,nstarpop=0,ngalpop=0,nheaders=0;
- unsigned long int ii,jj,input_naxes[2];
+ long int ii,jj,input_naxes[2];
  char paramfile[MAXLENGTH],the_default[MAXLENGTH],output[MAXLENGTH];
  char line[2*MAXLENGTH],**p_parse;
  FILE *fstream=NULL;

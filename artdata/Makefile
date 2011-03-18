@@ -16,15 +16,16 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
+UNAME = `uname -s`
 OS = redhat
-PREFIX = /home/labrie/prgc
+PREFIX = $(HOME)/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
-EPREFIX = $(PREFIX)/img/artdata
+EPREFIX = $(PREFIX)
 LPREFIX = $(EPREFIX)
 IPREFIX = $(EPREFIX)
-SPREFIX = $(EPREFIX)
+SPREFIX = $(EPREFIX)/packages
 
 #### Compiler Variation Definitions ####
 CC = gcc
@@ -39,7 +40,7 @@ OTHER_FILES = testsnr.pop noiseimg.fits
 BASIC_FILES = Makefile Changes TODO $(PARAM_FILES) $(OTHER_FILES)
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).1.1
+RELEASE = $(VERSION).1.2
 
 #### Object Definitions ####
 OBJ_ARTDATA = rd_param.o artdata.o
@@ -66,7 +67,7 @@ configure:
 # configure artdata.h
 	@echo -n "Configuring artdata.h ... "
 	@\rm -f tmp
-	@sed "s!DEFAULT_DIR \".*\"!DEFAULT_DIR \"$(EPREFIX)/\"!" \
+	@sed "s!DEFAULT_DIR \".*\"!DEFAULT_DIR \"$(EPREFIX)/bin/\"!" \
                                                         $(PKGNAME).h  > tmp
 	@if [ -s tmp ]; then \
           mv -f tmp $(PKGNAME).h; \
@@ -99,27 +100,27 @@ all : main
 ## Installing ##
 .PHONY: install install-src install-all
 install:
-	@install -d -m 0755 $(EPREFIX)
+	@install -d -m 0755 $(EPREFIX)/bin
 	@for bin in $(BINS) ; do \
-          install -m 0755 $$bin $(EPREFIX)/; \
+          install -m 0755 $$bin $(EPREFIX)/bin/; \
         done
 	@for file in $(PARAM_FILES) ; do \
-          install -m 0644 $$file $(EPREFIX)/; \
+          install -m 0644 $$file $(EPREFIX)/bin/; \
         done
 
 install-src:
-	@install -d -m 0755 $(SPREFIX)/src
+	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
 	@for src in $(SRCS) ; do \
-          install -m 0644 $$src $(SPREFIX)/src/; \
+          install -m 0644 $$src $(SPREFIX)/$(PKGNAME); \
         done
 	@for file in $(HEADERS) ; do \
-          install -m 0644 $$file $(SPREFIX)/src/; \
+          install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
         done
 	@for file in $(BASIC_FILES) ; do \
-          install -m 0644 $$file $(SPREFIX)/src/; \
+          install -m 0644 $$file $(SPREFIX)/$(PKGNAME); \
         done
 	@for file in $(DOCS) ; do \
-          install -m 0644 $$file $(SPREFIX)/src/; \
+          install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
         done
 
 install-all: install install-src

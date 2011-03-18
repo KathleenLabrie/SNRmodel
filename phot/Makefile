@@ -40,7 +40,7 @@ BASIC_FILES = Makefile Changes TODO apphot.param data.param fitsky.param \
 FILTERS = cfh5103c_approx.dat cfh5201c_approx.dat
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).3.2
+RELEASE = $(VERSION).3.3
 
 #### Object Definitions ####
 OBJ_PHOT = rd_param.o rd_coords.o phot.o mag.o
@@ -111,6 +111,10 @@ install:
 	@for filter in $(FILTERS) ; do \
 	  install -m 0644 $$filter $(EPREFIX)/bin/filters; \
 	done
+
+install-devel:
+	@install -d -m 0755 $(IPREFIX)/include
+	@install -m 0644 phot.h $(IPREFIX)/include/
 
 install-src:
 	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)

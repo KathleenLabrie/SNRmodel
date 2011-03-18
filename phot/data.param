@@ -1,0 +1,7 @@
+datapars.scale=0.5		# image scale in arcsec per pixel
+datapars.datamin=-200		# Minimum good data value
+datapars.datamax=10000		# Maximum good data value
+datapars.hexposure=INTTIMER	# exposure time image header keyword
+datapars.hairmass=AIRMASS	# airmass image header keyword
+datapars.itime=1.		# exposure time. superseded by hexposure
+datapars.gain=15.		# electron per ADU

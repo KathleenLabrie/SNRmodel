@@ -1,0 +1,9 @@
+9 March 2002: [v0.1.0]
+	Phot package created.
+	Added 'apphot' to the package.
+22 April 2002: [v0.2.0]
+	Added 'abscalib' to the package
+	Added fakeimg in test suite
+30 June 2002: [v0.3.0]
+	Upgraded 'abscalib'. rd_set_double had changed.
+	Added 'redcor' and related routines to the package.

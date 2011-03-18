@@ -1,0 +1,5 @@
+photpars.ashape=ellip		# shape of the aperture [circ,ellip]
+photpars.radii=25,50,60,70,80,90,100,110,120	# List of radii or semi-major axis lengths
+photpars.ellip=0.58		# ellipticity, used only when ashape is ellip
+photpars.pa=27.5			# position angle
+photpars.zmag=25.		# zero point of magnitude scale

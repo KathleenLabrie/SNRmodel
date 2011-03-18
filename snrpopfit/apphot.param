@@ -1,0 +1,7 @@
+apphot.image=			# input image
+apphot.imglist=list.lis	        	# input image list
+apphot.coords=n1569f1.coo			# coordinate list
+apphot.output=default		# results file
+apphot.datapars=default		# data dependent parameters [data.param]
+apphot.fitskypars=default	# sky fitting parameters [fitsky.param]
+apphot.photpars=default		# photometry parameters [phot.param]

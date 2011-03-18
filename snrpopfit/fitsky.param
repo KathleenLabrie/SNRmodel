@@ -1,0 +1,9 @@
+fitskypars.algorithm=median	# mean or median
+fitskypars.annulus=125.		# inner radii or semi-major axis lengths
+fitskypars.wannulus=5.		# width of sky annulus
+fitskypars.skyvalue=0.		# user sky value
+fitskypars.maxiter=30		# max nb of sigma clipping iteration
+fitskypars.maxreject=200		# max nb of sky value to reject
+fitskypars.nkeep=100		# min nb of sky value to keep
+fitskypars.loreject=3.		# lower rejection limit in sky sigma
+fitskypars.hireject=3.		# upper rejection limit in sky sigma

@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<!DOCTYPE ggobidata SYSTEM "ggobi.dtd">
+
+<ggobidata count="2">
+<data name="data cube">
+<description>
+</description>
+<variables count="4">
+  <variable name="NSNR" />
+  <variable name="snrate" />
+  <variable name="nambient" />
+  <variable name="ChiSq" />
+</variables>
+<records count="125" color="2" glyph="plus 0">
+<record id="1"> 50 0.0005 0.5 146367 </record>
+<record id="2"> 160 0.0005 0.5 144593 </record>
+<record id="3"> 400 0.0005 0.5 140957 </record>
+<record id="4"> 1000 0.0005 0.5 140690 </record>
+<record id="5"> 2500 0.0005 0.5 166714 </record>
+<record id="6"> 50 0.001 0.5 144461 </record>
+<record id="7"> 160 0.001 0.5 146409 </record>
+<record id="8"> 400 0.001 0.5 140914 </record>
+<record id="9"> 1000 0.001 0.5 145332 </record>
+<record id="10"> 2500 0.001 0.5 166912 </record>
+<record id="11"> 50 0.004 0.5 146358 </record>
+<record id="12"> 160 0.004 0.5 146755 </record>
+<record id="13"> 400 0.004 0.5 141305 </record>
+<record id="14"> 1000 0.004 0.5 140231 </record>
+<record id="15"> 2500 0.004 0.5 165005 </record>
+<record id="16"> 50 0.01 0.5 141851 </record>
+<record id="17"> 160 0.01 0.5 140737 </record>
+<record id="18"> 400 0.01 0.5 141328 </record>
+<record id="19"> 1000 0.01 0.5 141846 </record>
+<record id="20"> 2500 0.01 0.5 161266 </record>
+<record id="21"> 50 0.025 0.5 141328 </record>
+<record id="22"> 160 0.025 0.5 145866 </record>
+<record id="23"> 400 0.025 0.5 145499 </record>
+<record id="24"> 1000 0.025 0.5 141996 </record>
+<record id="25"> 2500 0.025 0.5 160358 </record>
+<record id="26"> 50 0.0005 1 144537 </record>
+<record id="27"> 160 0.0005 1 139834 </record>
+<record id="28"> 400 0.0005 1 146363 </record>
+<record id="29"> 1000 0.0005 1 150531 </record>
+<record id="30"> 2500 0.0005 1 260148 </record>
+<record id="31"> 50 0.001 1 147735 </record>
+<record id="32"> 160 0.001 1 148410 </record>
+<record id="33"> 400 0.001 1 143577 </record>
+<record id="34"> 1000 0.001 1 160286 </record>
+<record id="35"> 2500 0.001 1 257792 </record>
+<record id="36"> 50 0.004 1 150982 </record>
+<record id="37"> 160 0.004 1 148758 </record>
+<record id="38"> 400 0.004 1 143908 </record>
+<record id="39"> 1000 0.004 1 158776 </record>
+<record id="40"> 2500 0.004 1 260804 </record>
+<record id="41"> 50 0.01 1 147787 </record>
+<record id="42"> 160 0.01 1 147637 </record>
+<record id="43"> 400 0.01 1 145298 </record>
+<record id="44"> 1000 0.01 1 153118 </record>
+<record id="45"> 2500 0.01 1 249360 </record>
+<record id="46"> 50 0.025 1 147719 </record>
+<record id="47"> 160 0.025 1 146571 </record>
+<record id="48"> 400 0.025 1 144876 </record>
+<record id="49"> 1000 0.025 1 156561 </record>
+<record id="50"> 2500 0.025 1 243161 </record>
+<record id="51"> 50 0.0005 2 143758 </record>
+<record id="52"> 160 0.0005 2 150432 </record>
+<record id="53"> 400 0.0005 2 159395 </record>
+<record id="54"> 1000 0.0005 2 217705 </record>
+<record id="55"> 2500 0.0005 2 597945 </record>
+<record id="56"> 50 0.001 2 145996 </record>
+<record id="57"> 160 0.001 2 143467 </record>
+<record id="58"> 400 0.001 2 153451 </record>
+<record id="59"> 1000 0.001 2 213325 </record>
+<record id="60"> 2500 0.001 2 660751 </record>
+<record id="61"> 50 0.004 2 146222 </record>
+<record id="62"> 160 0.004 2 146730 </record>
+<record id="63"> 400 0.004 2 155041 </record>
+<record id="64"> 1000 0.004 2 221920 </record>
+<record id="65"> 2500 0.004 2 593363 </record>
+<record id="66"> 50 0.01 2 145353 </record>
+<record id="67"> 160 0.01 2 148518 </record>
+<record id="68"> 400 0.01 2 151407 </record>
+<record id="69"> 1000 0.01 2 211218 </record>
+<record id="70"> 2500 0.01 2 605000 </record>
+<record id="71"> 50 0.025 2 146306 </record>
+<record id="72"> 160 0.025 2 144764 </record>
+<record id="73"> 400 0.025 2 146688 </record>
+<record id="74"> 1000 0.025 2 193564 </record>
+<record id="75"> 2500 0.025 2 532862 </record>
+<record id="76"> 50 0.0005 3 143692 </record>
+<record id="77"> 160 0.0005 3 149864 </record>
+<record id="78"> 400 0.0005 3 168411 </record>
+<record id="79"> 1000 0.0005 3 340472 </record>
+<record id="80"> 2500 0.0005 3 1.21986e+06 </record>
+<record id="81"> 50 0.001 3 142827 </record>
+<record id="82"> 160 0.001 3 144500 </record>
+<record id="83"> 400 0.001 3 181411 </record>
+<record id="84"> 1000 0.001 3 324563 </record>
+<record id="85"> 2500 0.001 3 1.26247e+06 </record>
+<record id="86"> 50 0.004 3 144455 </record>
+<record id="87"> 160 0.004 3 145370 </record>
+<record id="88"> 400 0.004 3 161425 </record>
+<record id="89"> 1000 0.004 3 317074 </record>
+<record id="90"> 2500 0.004 3 1.30069e+06 </record>
+<record id="91"> 50 0.01 3 139228 </record>
+<record id="92"> 160 0.01 3 139269 </record>
+<record id="93"> 400 0.01 3 168346 </record>
+<record id="94"> 1000 0.01 3 292240 </record>
+<record id="95"> 2500 0.01 3 1.2637e+06 </record>
+<record id="96"> 50 0.025 3 142375 </record>
+<record id="97"> 160 0.025 3 138667 </record>
+<record id="98"> 400 0.025 3 160515 </record>
+<record id="99"> 1000 0.025 3 283660 </record>
+<record id="100"> 2500 0.025 3 1.09272e+06 </record>
+<record id="101"> 50 0.0005 10 169653 </record>
+<record id="102"> 160 0.0005 10 201940 </record>
+<record id="103"> 400 0.0005 10 497505 </record>
+<record id="104"> 1000 0.0005 10 2.40054e+06 </record>
+<record id="105"> 2500 0.0005 10 1.21049e+07 </record>
+<record id="106"> 50 0.001 10 160124 </record>
+<record id="107"> 160 0.001 10 232914 </record>
+<record id="108"> 400 0.001 10 467590 </record>
+<record id="109"> 1000 0.001 10 2.13628e+06 </record>
+<record id="110"> 2500 0.001 10 1.31177e+07 </record>
+<record id="111"> 50 0.004 10 156265 </record>
+<record id="112"> 160 0.004 10 224579 </record>
+<record id="113"> 400 0.004 10 495179 </record>
+<record id="114"> 1000 0.004 10 2.06141e+06 </record>
+<record id="115"> 2500 0.004 10 1.31877e+07 </record>
+<record id="116"> 50 0.01 10 144251 </record>
+<record id="117"> 160 0.01 10 207871 </record>
+<record id="118"> 400 0.01 10 520729 </record>
+<record id="119"> 1000 0.01 10 2.25923e+06 </record>
+<record id="120"> 2500 0.01 10 1.18923e+07 </record>
+<record id="121"> 50 0.025 10 142911 </record>
+<record id="122"> 160 0.025 10 169869 </record>
+<record id="123"> 400 0.025 10 436511 </record>
+<record id="124"> 1000 0.025 10 2.36881e+06 </record>
+<record id="125"> 2500 0.025 10 1.15366e+07 </record>
+</records>
+</data>
+
+<data name="edges">
+<records count="300" glyph="fr 0">
+<record source="1" destination="2" color="2"> </record>
+<record source="1" destination="6" color="2"> </record>
+<record source="1" destination="26" color="2"> </record>
+<record source="2" destination="3" color="2"> </record>
+<record source="2" destination="7" color="2"> </record>
+<record source="2" destination="27" color="2"> </record>
+<record source="3" destination="4" color="2"> </record>
+<record source="3" destination="8" color="2"> </record>
+<record source="3" destination="28" color="2"> </record>
+<record source="4" destination="5" color="2"> </record>
+<record source="4" destination="9" color="2"> </record>
+<record source="4" destination="29" color="2"> </record>
+<record source="5" destination="10" color="2"> </record>
+<record source="5" destination="30" color="2"> </record>
+<record source="6" destination="7" color="2"> </record>
+<record source="6" destination="11" color="2"> </record>
+<record source="6" destination="31" color="2"> </record>
+<record source="7" destination="8" color="2"> </record>
+<record source="7" destination="12" color="2"> </record>
+<record source="7" destination="32" color="2"> </record>
+<record source="8" destination="9" color="2"> </record>
+<record source="8" destination="13" color="2"> </record>
+<record source="8" destination="33" color="2"> </record>
+<record source="9" destination="10" color="2"> </record>
+<record source="9" destination="14" color="2"> </record>
+<record source="9" destination="34" color="2"> </record>
+<record source="10" destination="15" color="2"> </record>
+<record source="10" destination="35" color="2"> </record>
+<record source="11" destination="12" color="2"> </record>
+<record source="11" destination="16" color="2"> </record>
+<record source="11" destination="36" color="2"> </record>
+<record source="12" destination="13" color="2"> </record>
+<record source="12" destination="17" color="2"> </record>
+<record source="12" destination="37" color="2"> </record>
+<record source="13" destination="14" color="2"> </record>
+<record source="13" destination="18" color="2"> </record>
+<record source="13" destination="38" color="2"> </record>
+<record source="14" destination="15" color="2"> </record>
+<record source="14" destination="19" color="2"> </record>
+<record source="14" destination="39" color="2"> </record>
+<record source="15" destination="20" color="2"> </record>
+<record source="15" destination="40" color="2"> </record>
+<record source="16" destination="17" color="2"> </record>
+<record source="16" destination="21" color="2"> </record>
+<record source="16" destination="41" color="2"> </record>
+<record source="17" destination="18" color="2"> </record>
+<record source="17" destination="22" color="2"> </record>
+<record source="17" destination="42" color="2"> </record>
+<record source="18" destination="19" color="2"> </record>
+<record source="18" destination="23" color="2"> </record>
+<record source="18" destination="43" color="2"> </record>
+<record source="19" destination="20" color="2"> </record>
+<record source="19" destination="24" color="2"> </record>
+<record source="19" destination="44" color="2"> </record>
+<record source="20" destination="25" color="2"> </record>
+<record source="20" destination="45" color="2"> </record>
+<record source="21" destination="22" color="2"> </record>
+<record source="21" destination="46" color="2"> </record>
+<record source="22" destination="23" color="2"> </record>
+<record source="22" destination="47" color="2"> </record>
+<record source="23" destination="24" color="2"> </record>
+<record source="23" destination="48" color="2"> </record>
+<record source="24" destination="25" color="2"> </record>
+<record source="24" destination="49" color="2"> </record>
+<record source="25" destination="50" color="2"> </record>
+<record source="26" destination="27" color="2"> </record>
+<record source="26" destination="31" color="2"> </record>
+<record source="26" destination="51" color="2"> </record>
+<record source="27" destination="28" color="2"> </record>
+<record source="27" destination="32" color="2"> </record>
+<record source="27" destination="52" color="2"> </record>
+<record source="28" destination="29" color="2"> </record>
+<record source="28" destination="33" color="2"> </record>
+<record source="28" destination="53" color="2"> </record>
+<record source="29" destination="30" color="2"> </record>
+<record source="29" destination="34" color="2"> </record>
+<record source="29" destination="54" color="2"> </record>
+<record source="30" destination="35" color="2"> </record>
+<record source="30" destination="55" color="2"> </record>
+<record source="31" destination="32" color="2"> </record>
+<record source="31" destination="36" color="2"> </record>
+<record source="31" destination="56" color="2"> </record>
+<record source="32" destination="33" color="2"> </record>
+<record source="32" destination="37" color="2"> </record>
+<record source="32" destination="57" color="2"> </record>
+<record source="33" destination="34" color="2"> </record>
+<record source="33" destination="38" color="2"> </record>
+<record source="33" destination="58" color="2"> </record>
+<record source="34" destination="35" color="2"> </record>
+<record source="34" destination="39" color="2"> </record>
+<record source="34" destination="59" color="2"> </record>
+<record source="35" destination="40" color="2"> </record>
+<record source="35" destination="60" color="2"> </record>
+<record source="36" destination="37" color="2"> </record>
+<record source="36" destination="41" color="2"> </record>
+<record source="36" destination="61" color="2"> </record>
+<record source="37" destination="38" color="2"> </record>
+<record source="37" destination="42" color="2"> </record>
+<record source="37" destination="62" color="2"> </record>
+<record source="38" destination="39" color="2"> </record>
+<record source="38" destination="43" color="2"> </record>
+<record source="38" destination="63" color="2"> </record>
+<record source="39" destination="40" color="2"> </record>
+<record source="39" destination="44" color="2"> </record>
+<record source="39" destination="64" color="2"> </record>
+<record source="40" destination="45" color="2"> </record>
+<record source="40" destination="65" color="2"> </record>
+<record source="41" destination="42" color="2"> </record>
+<record source="41" destination="46" color="2"> </record>
+<record source="41" destination="66" color="2"> </record>
+<record source="42" destination="43" color="2"> </record>
+<record source="42" destination="47" color="2"> </record>
+<record source="42" destination="67" color="2"> </record>
+<record source="43" destination="44" color="2"> </record>
+<record source="43" destination="48" color="2"> </record>
+<record source="43" destination="68" color="2"> </record>
+<record source="44" destination="45" color="2"> </record>
+<record source="44" destination="49" color="2"> </record>
+<record source="44" destination="69" color="2"> </record>
+<record source="45" destination="50" color="2"> </record>
+<record source="45" destination="70" color="2"> </record>
+<record source="46" destination="47" color="2"> </record>
+<record source="46" destination="71" color="2"> </record>
+<record source="47" destination="48" color="2"> </record>
+<record source="47" destination="72" color="2"> </record>
+<record source="48" destination="49" color="2"> </record>
+<record source="48" destination="73" color="2"> </record>
+<record source="49" destination="50" color="2"> </record>
+<record source="49" destination="74" color="2"> </record>
+<record source="50" destination="75" color="2"> </record>
+<record source="51" destination="52" color="2"> </record>
+<record source="51" destination="56" color="2"> </record>
+<record source="51" destination="76" color="2"> </record>
+<record source="52" destination="53" color="2"> </record>
+<record source="52" destination="57" color="2"> </record>
+<record source="52" destination="77" color="2"> </record>
+<record source="53" destination="54" color="2"> </record>
+<record source="53" destination="58" color="2"> </record>
+<record source="53" destination="78" color="2"> </record>
+<record source="54" destination="55" color="2"> </record>
+<record source="54" destination="59" color="2"> </record>
+<record source="54" destination="79" color="2"> </record>
+<record source="55" destination="60" color="2"> </record>
+<record source="55" destination="80" color="2"> </record>
+<record source="56" destination="57" color="2"> </record>
+<record source="56" destination="61" color="2"> </record>
+<record source="56" destination="81" color="2"> </record>
+<record source="57" destination="58" color="2"> </record>
+<record source="57" destination="62" color="2"> </record>
+<record source="57" destination="82" color="2"> </record>
+<record source="58" destination="59" color="2"> </record>
+<record source="58" destination="63" color="2"> </record>
+<record source="58" destination="83" color="2"> </record>
+<record source="59" destination="60" color="2"> </record>
+<record source="59" destination="64" color="2"> </record>
+<record source="59" destination="84" color="2"> </record>
+<record source="60" destination="65" color="2"> </record>
+<record source="60" destination="85" color="2"> </record>
+<record source="61" destination="62" color="2"> </record>
+<record source="61" destination="66" color="2"> </record>
+<record source="61" destination="86" color="2"> </record>
+<record source="62" destination="63" color="2"> </record>
+<record source="62" destination="67" color="2"> </record>
+<record source="62" destination="87" color="2"> </record>
+<record source="63" destination="64" color="2"> </record>
+<record source="63" destination="68" color="2"> </record>
+<record source="63" destination="88" color="2"> </record>
+<record source="64" destination="65" color="2"> </record>
+<record source="64" destination="69" color="2"> </record>
+<record source="64" destination="89" color="2"> </record>
+<record source="65" destination="70" color="2"> </record>
+<record source="65" destination="90" color="2"> </record>
+<record source="66" destination="67" color="2"> </record>
+<record source="66" destination="71" color="2"> </record>
+<record source="66" destination="91" color="2"> </record>
+<record source="67" destination="68" color="2"> </record>
+<record source="67" destination="72" color="2"> </record>
+<record source="67" destination="92" color="2"> </record>
+<record source="68" destination="69" color="2"> </record>
+<record source="68" destination="73" color="2"> </record>
+<record source="68" destination="93" color="2"> </record>
+<record source="69" destination="70" color="2"> </record>
+<record source="69" destination="74" color="2"> </record>
+<record source="69" destination="94" color="2"> </record>
+<record source="70" destination="75" color="2"> </record>
+<record source="70" destination="95" color="2"> </record>
+<record source="71" destination="72" color="2"> </record>
+<record source="71" destination="96" color="2"> </record>
+<record source="72" destination="73" color="2"> </record>
+<record source="72" destination="97" color="2"> </record>
+<record source="73" destination="74" color="2"> </record>
+<record source="73" destination="98" color="2"> </record>
+<record source="74" destination="75" color="2"> </record>
+<record source="74" destination="99" color="2"> </record>
+<record source="75" destination="100" color="2"> </record>
+<record source="76" destination="77" color="2"> </record>
+<record source="76" destination="81" color="2"> </record>
+<record source="76" destination="101" color="2"> </record>
+<record source="77" destination="78" color="2"> </record>
+<record source="77" destination="82" color="2"> </record>
+<record source="77" destination="102" color="2"> </record>
+<record source="78" destination="79" color="2"> </record>
+<record source="78" destination="83" color="2"> </record>
+<record source="78" destination="103" color="2"> </record>
+<record source="79" destination="80" color="2"> </record>
+<record source="79" destination="84" color="2"> </record>
+<record source="79" destination="104" color="2"> </record>
+<record source="80" destination="85" color="2"> </record>
+<record source="80" destination="105" color="2"> </record>
+<record source="81" destination="82" color="2"> </record>
+<record source="81" destination="86" color="2"> </record>
+<record source="81" destination="106" color="2"> </record>
+<record source="82" destination="83" color="2"> </record>
+<record source="82" destination="87" color="2"> </record>
+<record source="82" destination="107" color="2"> </record>
+<record source="83" destination="84" color="2"> </record>
+<record source="83" destination="88" color="2"> </record>
+<record source="83" destination="108" color="2"> </record>
+<record source="84" destination="85" color="2"> </record>
+<record source="84" destination="89" color="2"> </record>
+<record source="84" destination="109" color="2"> </record>
+<record source="85" destination="90" color="2"> </record>
+<record source="85" destination="110" color="2"> </record>
+<record source="86" destination="87" color="2"> </record>
+<record source="86" destination="91" color="2"> </record>
+<record source="86" destination="111" color="2"> </record>
+<record source="87" destination="88" color="2"> </record>
+<record source="87" destination="92" color="2"> </record>
+<record source="87" destination="112" color="2"> </record>
+<record source="88" destination="89" color="2"> </record>
+<record source="88" destination="93" color="2"> </record>
+<record source="88" destination="113" color="2"> </record>
+<record source="89" destination="90" color="2"> </record>
+<record source="89" destination="94" color="2"> </record>
+<record source="89" destination="114" color="2"> </record>
+<record source="90" destination="95" color="2"> </record>
+<record source="90" destination="115" color="2"> </record>
+<record source="91" destination="92" color="2"> </record>
+<record source="91" destination="96" color="2"> </record>
+<record source="91" destination="116" color="2"> </record>
+<record source="92" destination="93" color="2"> </record>
+<record source="92" destination="97" color="2"> </record>
+<record source="92" destination="117" color="2"> </record>
+<record source="93" destination="94" color="2"> </record>
+<record source="93" destination="98" color="2"> </record>
+<record source="93" destination="118" color="2"> </record>
+<record source="94" destination="95" color="2"> </record>
+<record source="94" destination="99" color="2"> </record>
+<record source="94" destination="119" color="2"> </record>
+<record source="95" destination="100" color="2"> </record>
+<record source="95" destination="120" color="2"> </record>
+<record source="96" destination="97" color="2"> </record>
+<record source="96" destination="121" color="2"> </record>
+<record source="97" destination="98" color="2"> </record>
+<record source="97" destination="122" color="2"> </record>
+<record source="98" destination="99" color="2"> </record>
+<record source="98" destination="123" color="2"> </record>
+<record source="99" destination="100" color="2"> </record>
+<record source="99" destination="124" color="2"> </record>
+<record source="100" destination="125" color="2"> </record>
+<record source="101" destination="102" color="2"> </record>
+<record source="101" destination="106" color="2"> </record>
+<record source="102" destination="103" color="2"> </record>
+<record source="102" destination="107" color="2"> </record>
+<record source="103" destination="104" color="2"> </record>
+<record source="103" destination="108" color="2"> </record>
+<record source="104" destination="105" color="2"> </record>
+<record source="104" destination="109" color="2"> </record>
+<record source="105" destination="110" color="2"> </record>
+<record source="106" destination="107" color="2"> </record>
+<record source="106" destination="111" color="2"> </record>
+<record source="107" destination="108" color="2"> </record>
+<record source="107" destination="112" color="2"> </record>
+<record source="108" destination="109" color="2"> </record>
+<record source="108" destination="113" color="2"> </record>
+<record source="109" destination="110" color="2"> </record>
+<record source="109" destination="114" color="2"> </record>
+<record source="110" destination="115" color="2"> </record>
+<record source="111" destination="112" color="2"> </record>
+<record source="111" destination="116" color="2"> </record>
+<record source="112" destination="113" color="2"> </record>
+<record source="112" destination="117" color="2"> </record>
+<record source="113" destination="114" color="2"> </record>
+<record source="113" destination="118" color="2"> </record>
+<record source="114" destination="115" color="2"> </record>
+<record source="114" destination="119" color="2"> </record>
+<record source="115" destination="120" color="2"> </record>
+<record source="116" destination="117" color="2"> </record>
+<record source="116" destination="121" color="2"> </record>
+<record source="117" destination="118" color="2"> </record>
+<record source="117" destination="122" color="2"> </record>
+<record source="118" destination="119" color="2"> </record>
+<record source="118" destination="123" color="2"> </record>
+<record source="119" destination="120" color="2"> </record>
+<record source="119" destination="124" color="2"> </record>
+<record source="120" destination="125" color="2"> </record>
+<record source="121" destination="122" color="2"> </record>
+<record source="122" destination="123" color="2"> </record>
+<record source="123" destination="124" color="2"> </record>
+<record source="124" destination="125" color="2"> </record>
+</records>
+</data>
+
+</ggobidata>

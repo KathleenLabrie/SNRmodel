@@ -1,0 +1,22 @@
+Aug 29, 2002: [v0.1.0]
+	Packaged as part of the "astro" package.
+
+Sep 08, 2002: [v0.1.1]
+	Add 'addsrc.pop' to the artimg command.
+	Need to implement full support for additional population.
+
+Sep 09, 2002: [v0.2.0]
+	Full support for additional populations.
+	Added "mask" of sim images.
+	Added chisq on aperture phot and stddev within aperture.
+
+Sep 19, 2002: [v0.2.1]
+	Fix a memory leak.
+
+May 22, 2006: [v0.2.2]
+    Use HOME to set PREFIX. Unable to use UNAME to set OS, yet; added to
+    TODO.  Remove automatic compilation of plotsurf because I don't have pgxtal.
+    Remove 'unsigned' for naxes and related variable due to changes in 
+    Cfitsio.  Add include statements to gcc4.0 from complaining.  Move
+    development files to 'devel' directory, until I figure out what they are
+    for. Add packaging of 'devel' to the Makefile.

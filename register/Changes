@@ -1,0 +1,8 @@
+26 June 2001: [v0.1.0]
+	Ported to RedHat Linux
+
+15 November 2001: [v0.1.1]
+	Fix Makefile.  Install section wasn't creating directories.
+
+12 August 2002: [v0.1.2]
+	Added combmosaic and header file.

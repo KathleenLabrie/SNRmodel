@@ -1,1 +1,3 @@
 - This package needs some reorganization.
+- Write a real test.  fakeimg just creates a fake image.  I need a test 
+  that will actually test the phot tasks.

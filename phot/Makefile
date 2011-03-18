@@ -8,7 +8,7 @@
 #
 # Coding language: C
 # Compiler: gcc
-# OS: Redhat Linux
+# OS: Redhat Linux, Mac OS X
 #
 ################################################################
 
@@ -16,15 +16,15 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
-OS = redhat
-PREFIX = /home/labrie/prgc
+OS = macosx
+PREFIX = /Users/klabrie/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
-EPREFIX = $(PREFIX)/img/phot
+EPREFIX = $(PREFIX)
 LPREFIX = $(EPREFIX)
 IPREFIX = $(EPREFIX)
-SPREFIX = $(EPREFIX)
+SPREFIX = $(EPREFIX)/packages/
 
 #### Compiler Variable Definitions ####
 CC = gcc
@@ -39,7 +39,7 @@ BASIC_FILES = Makefile Changes TODO apphot.param data.param fitsky.param \
 FILTERS = cfh5103c_approx.dat cfh5201c_approx.dat
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).3.0
+RELEASE = $(VERSION).3.1
 
 #### Object Definitions ####
 OBJ_PHOT = rd_param.o rd_coords.o phot.o mag.o
@@ -74,7 +74,7 @@ configure:
 # configure phot.h
 	@echo -n "Configuring phot.h ... "
 	@\rm -f tmp
-	@sed "s!DEFAULT_DIR \".*\"!DEFAULT_DIR \"$(EPREFIX)/\"!" phot.h > tmp
+	@sed "s!DEFAULT_DIR \".*\"!DEFAULT_DIR \"$(EPREFIX)/bin/\"!" phot.h > tmp
 	@if [ -s tmp ]; then \
 	  mv -f tmp phot.h; \
 	else \
@@ -102,37 +102,37 @@ test: $(TEST_OBJ)
 ## Installing ##
 .PHONY: install install-src
 install:
-	@install -d -m 0755 $(EPREFIX)
+	@install -d -m 0755 $(EPREFIX)/bin
 	@for bin in $(BINS) ; do \
-	  install -m 0755 $$bin $(EPREFIX)/; \
+	  install -m 0755 $$bin $(EPREFIX)/bin/; \
 	done
-	@install -d -m 0755 $(EPREFIX)/filters
+	@install -d -m 0755 $(EPREFIX)/bin/filters
 	@for filter in $(FILTERS) ; do \
-	  install -m 0644 $$filter $(EPREFIX)/filters; \
+	  install -m 0644 $$filter $(EPREFIX)/bin/filters; \
 	done
 
 install-src:
-	@install -d -m 0755 $(SPREFIX)/src
+	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
 	@for src in $(SRCS) ; do \
-	  install -m 0644 $$src $(SPREFIX)/src/; \
+	  install -m 0644 $$src $(SPREFIX)/$(PKGNAME)/; \
 	done
 	@for file in $(HEADERS) ; do \
-	  install -m 0644 $$file $(SPREFIX)/src/; \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
 	done
 	@for file in $(BASIC_FILES) ; do \
-	  install -m 0644 $$file $(SPREFIX)/src/; \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
 	done
 	@for file in $(DOCS) ; do \
-	  install -m 0644 $$file $(SPREFIX)/src/; \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
 	done
 	@for file in $(TEST_FILES) ; do \
-	  install -m 0644 $$file $(SPREFIX)/src/; \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
 	done
 	@for file in $(TEST_SRC) ; do \
-	  install -m 0644 $$file $(SPREFIX)/src/; \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
 	done
 	@for file in $(FILTERS) ; do \
-	  install -m 0644 $$file $(SPREFIX)/src/; \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
 	done
 
 ## Packaging ##

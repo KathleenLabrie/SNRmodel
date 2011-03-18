@@ -1,6 +1,7 @@
 #include <KLutil.h>
 #include <KLcfitsio.h>
 #include <stddef.h>		/* for NULL */
+#include <string.h>		/* for gcc4.0, strcpy() */
 #include <math.h>
 #include <float.h>		/* for DBL_EPSILON */
 
@@ -10,7 +11,7 @@ char *argv[];
 {
  int status=0;
  long int ii,jj;
- unsigned long int naxes[2];
+ long int naxes[2];
  double **ppix=NULL;
  double x0,y0,r,e,fpp,fpbkg;
  double dr2,dx,dy,theta;

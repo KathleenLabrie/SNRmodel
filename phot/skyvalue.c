@@ -14,6 +14,7 @@
 #include "./KLstats.h"
 #include <stdio.h>
 #include <KLutil.h>
+#include <math.h>	/* for gcc4.0, fabs */
 
 int skyvalue(double *inputvec, int npix, FITSKYPARS pars, 
 	      double *sky, double *stddev, int *npix1, int FLAGS)

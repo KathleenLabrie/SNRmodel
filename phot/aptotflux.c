@@ -15,6 +15,7 @@
 #include <KLutil.h>
 #include <math.h>
 #include <float.h>	/* for DBL_EPSILON */
+#include <string.h>	/* for gcc4.0, strcpy */
 
 int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
 		PHOTPARS ppars, DATAPARS dpars, RESULTS *res, int FLAGS )

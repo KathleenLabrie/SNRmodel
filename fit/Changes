@@ -3,3 +3,5 @@
 
 15 November 2001: v[0.1.1]
 	Fix Makefile.  Install section wasn't creating directories.
+17 May 2006: [v0.1.2]
+	Add include statement for gcc4.0

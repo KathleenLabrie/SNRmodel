@@ -1,5 +1,5 @@
 /* Main : fitgsurf */
-/* Version: 1.0.1 */
+/* Version: 1.0.2 */
 /*   Fit a symmetric gaussian surface to a set of data points.  Outputs
  *   amplitude, x and y center, sigma and the chi square.  Error on each
  *   data points is ignored.
@@ -22,6 +22,7 @@
 #include <math.h>
 #include <stddef.h>	/* for NULL */
 #include <stdlib.h>
+#include <string.h>	/* for gcc4.0, strcpy() */
 
 #define NDIM 3
 #define MA 4

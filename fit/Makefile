@@ -18,14 +18,15 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
-OS = redhat
-PREFIX = /home/labrie/prgc
+OS = macosx
+PREFIX = /Users/klabrie/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
-EPREFIX = $(PREFIX)/fit
+EPREFIX = $(PREFIX)
 LPREFIX = $(EPREFIX)
 IPREFIX = $(EPREFIX)
+SPREFIX = $(EPREFIX)/packages/
 
 #### Compiler Variable Definitions ####
 CC = gcc
@@ -38,12 +39,12 @@ PKGNAME = fit
 BASIC_FILES = Makefile Changes TODO
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).1.1
+RELEASE = $(VERSION).1.2
 
 #### Object Definitions ####
 OBJ_FITGSURF = fitgsurf.o
 OBJECTS = $(sort $(OBJ_FITGSURF))
-SRC = $(OBJECTS:.o=.c)
+SRCS = $(OBJECTS:.o=.c)
 BINS = fitgsurf
 BINS_INSTALL = $(addprefix install_,$(BINS))
 HEADERS = $(PKGNAME).h
@@ -67,16 +68,31 @@ fitgsurf: $(OBJ_FITGSURF)
 all : main
 
 ## Installing ##
-.PHONY: $(BINS_INSTALL)
+.PHONY: $(BINS_INSTALL) install-src
 install : $(BINS_INSTALL)
 $(BINS_INSTALL):
-	install -d -m 0755 $(EPREFIX)
-	install -m 0755 $(subst install_,,$@) $(EPREFIX)/
+	@install -d -m 0755 $(EPREFIX)/bin
+	@install -m 0755 $(subst install_,,$@) $(EPREFIX)/bin/
+
+install-src:
+	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
+	@for src in $(SRCS) ; do \
+	  install -m 0644 $$src $(SPREFIX)/$(PKGNAME)/; \
+	done
+	@for file in $(HEADERS) ; do \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
+	done
+	@for file in $(BASIC_FILES) ; do \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
+	done
+	@for file in $(DOCS) ; do \
+	  install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
+	done
 
 ## Packaging ##
 package-src:
-	tar cvf $(PKGNAME)-$(RELEASE).tar $(BASIC_FILES) $(DOCS) $(SRC) \
-        $(HEADERS)
+	tar cvf $(PKGNAME)-$(RELEASE).tar $(BASIC_FILES) $(DOCS) $(SRCS) \
+        	$(HEADERS)
 	$(GZIP) $(PKGNAME)-$(RELEASE).tar
 
 #### Dependencies ####

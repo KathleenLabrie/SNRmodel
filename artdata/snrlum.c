@@ -1,5 +1,5 @@
 /* Function : snrlum */
-/* Version : 0.1.0 */
+/* Version : 0.1.1 */
 /*   Generate SNR luminosity.
  *
  * int snrlum(SNRPARS *pars, ASNR *asnr)
@@ -15,6 +15,7 @@
 #include "./mksnrpop.h"
 #include <KLran.h>
 #include <math.h>
+#include <float.h>
 
 int snrlum(SNRPARS *pars, ASNR *asnr)
 {
@@ -38,8 +39,18 @@ int snrlum(SNRPARS *pars, ASNR *asnr)
     Dpds = 28. * pow(E51,2./7.) * pow(zeta,-1./7.) * pow(n0,-3./7.);
     tsf = 3.61e4* pow(E51,3./14.) * pow(zeta,-5./14.) * pow(n0,-4./7);
     tpds = tsf/exp(1.);
-    Dlife = Dpds* pow((4./3.)*(life/tpds) - (1./3.) , 3./10.);
-    if ( (asnr->asnr_diameter >= Dpds) && (asnr->asnr_diameter <= Dlife)) {
+    Dlife = 0.;
+    if ((life/tpds) > 0.25) {
+       Dlife = Dpds* pow((4./3.)*(life/tpds) - (1./3.) , 3./10.);
+    }
+    /* If SNR is radiative, and has not dissipated away
+     * or
+     * if SNR is radiative and has unlimited lifetime (life==0)
+     * then
+     * give it some flux.
+     */
+    if ( (asnr->asnr_diameter >= Dpds) && 
+         ((asnr->asnr_diameter <= Dlife) || (fabs(life) <= DBL_EPSILON))) {
        if (iset == 0) {
           deviate = gasdev(&pars->snr_seedlum);
           spare = gasdev(&pars->snr_seedlum);

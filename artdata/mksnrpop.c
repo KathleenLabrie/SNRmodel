@@ -1,5 +1,5 @@
 /* Main : mksnrpop */
-/* Version : 0.1.0 */
+/* Version : 0.1.1 */
 /*   Create a population of SNR.  Outputs are in intrinsic physical
  *   units.
  *
@@ -18,6 +18,7 @@
  *	nsnr		: Number of SNR to generate
  *	snrate		: SN rate [1/yr]
  *	nambient	: Ambient number density
+ *  life        : Life time of the SNRs (0=unlimitted)
  *	scalerad	: Scale radius of the galactocentric distribution
  *	ellip		: Ellipticity of the galactocentric distribution
  *	pa		: Position angle of the galactocentric distribution

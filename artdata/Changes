@@ -4,3 +4,7 @@
 	Use HOME to set PREFIX. Unable to use UNAME to set OS, yet; added
 	to TODO.  Sort out the Makefile a bit. Remove the 'unsigned' for
 	naxes and related variables (because of changes in Cfitsio).
+7 June 2006: v0.1.3
+	When the maximum life time support was added, the unlimited lifetime
+	mode was lost.  This mode has been restored.  Setting 'life' to 0
+	is interpreted as unlimited lifetime.

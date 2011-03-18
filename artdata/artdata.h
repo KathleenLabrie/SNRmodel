@@ -5,10 +5,10 @@
 #ifndef _ARTDATA_H_
 #define _ARTDATA_H_
 
-#define BINDIR "/home/klabrie/prgc/" 
+#define BINDIR "/Users/klabrie/prgc/" 
 /* #define SIMBINDIST "stats/simbindist" */
 
-#define DEFAULT_DIR "/home/klabrie/prgc/bin/"
+#define DEFAULT_DIR "/Users/klabrie/prgc/bin/"
 #define DEFAULT_MKSNRPOP_PARS "mksnrpop.param"
 #define DEFAULT_ARTIMG_PARS "artimg.param"
 

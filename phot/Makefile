@@ -16,8 +16,9 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
-OS = macosx
-PREFIX = /Users/klabrie/prgc
+UNAME = `uname -s`
+OS = redhat
+PREFIX = $(HOME)/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
@@ -39,7 +40,7 @@ BASIC_FILES = Makefile Changes TODO apphot.param data.param fitsky.param \
 FILTERS = cfh5103c_approx.dat cfh5201c_approx.dat
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).3.1
+RELEASE = $(VERSION).3.2
 
 #### Object Definitions ####
 OBJ_PHOT = rd_param.o rd_coords.o phot.o mag.o

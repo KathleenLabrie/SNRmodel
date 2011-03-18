@@ -16,8 +16,9 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
-OS = macosx
-PREFIX = /Users/klabrie/prgc
+UNAME = `uname -s`
+OS = redhat
+PREFIX = $(HOME)/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
@@ -37,7 +38,7 @@ PKGNAME = imfilter
 BASIC_FILES = Makefile Changes TODO
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).1.3
+RELEASE = $(VERSION).1.4
 
 #### Object Definitions ####
 OBJ_FILTER = boxcar.o dobx.o filter.o initbx.o

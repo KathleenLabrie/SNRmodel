@@ -46,7 +46,7 @@ PARAM_FILES = snrpopfit.param
 BASIC_FILES = Makefile Changes TODO $(PARAM_FILES)
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).2.2
+RELEASE = $(VERSION).2.3
 
 DEVEL_FILES = masksaturated.dat artimg.param n1569f1_e9801_FeIIline.fits \
 	n1569f1.fits noiseimg.fits mksnrpop.param apphot.param \

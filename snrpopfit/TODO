@@ -3,3 +3,20 @@
 - Use UNAME to set OS.
 - Get pgxtal, and package it with this code.  Too obscure.
 - Set location of mksnrpop and artimg automatically.
+
+BUGS
+- I believe there is a memory leak.  When a large number of models are
+  asked for (also when snrpopfit call within a loop), the memory usage keeps
+  climbing.  Good thing that nowadays, computers have 1-2Gb memory...
+  I have notice bad inputs (invalid float) which do not issue an error, put 
+  could possible mess up the memory.
+
+- *** Sometimes, snrpopfit with -n 80 will produce less than 80 models
+  (79, 78, I saw 72 once).  There was a problem with bad inputs (invalid float)
+  in my sequences, but once it happened on the first good input call.  I do not
+  know why it happens and I do not know if it affects the results!  The
+  time between the models is consistent with a complete, correct model.  Also,
+  no model indexes are skipped, it just stops prior to 80.  I have added
+  DEBUG outputs to snrpopfit.  Worth noting, this started after artdata was
+  update to support unlimited lifetime again.  I do not know why this would
+  matter.

@@ -20,3 +20,7 @@ May 22, 2006: [v0.2.2]
     Cfitsio.  Add include statements to gcc4.0 from complaining.  Move
     development files to 'devel' directory, until I figure out what they are
     for. Add packaging of 'devel' to the Makefile.
+
+Jun 22, 2006: [v0.2.3]
+    Added DEBUG outputs.  Check validitity of input floats for 
+    snrate,nsnr,nambient.

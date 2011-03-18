@@ -1,5 +1,5 @@
 /* Function Package : rd_param */
-/* Version: 0.1.1 */
+/* Version: 0.1.2 */
 /*   Functions used to read parameter files associated to the 'snrpopfit' pkg
  *
  * int rd_snrpopfit_param( FILE *istream; SNRPOPFITPARS *pars )
@@ -17,11 +17,11 @@
 #include <KLutil.h>     /* for definitions, svector() */
 #include <stddef.h>     /* for NULL */
 #include <string.h>
-#include <stdlib.h>     /* for atof(), atoi() */
+#include <stdlib.h>     /* for atof(), atoi(), strtod() */
 #include <stdio.h>
 
 /* Function : rd_snrpopfit_param */
-/* Version : 0.1.0 */
+/* Version : 0.1.1 */
 /*   Read snrpopfit.param file
  *
  * int rd_snrpopfit_param( FILE *istream, SNRPOPFITPARS *pars )
@@ -33,6 +33,7 @@ int rd_snrpopfit_param( FILE *istream, SNRPOPFITPARS *pars )
 {
  int status=0;
  int i;
+ char *ptail;
  char line[2*MAXLENGTH], *pstr, tmp[2*MAXLENGTH], **p_parse=NULL;
 
  while (fgets( line, 2*MAXLENGTH, istream ) != NULL) {
@@ -63,7 +64,13 @@ int rd_snrpopfit_param( FILE *istream, SNRPOPFITPARS *pars )
       pars->snrpopfit_Nnsnr = splitstr(tmp, p_parse, ",");
       pars->snrpopfit_nsnr = dvector(pars->snrpopfit_Nnsnr);
       for (i=0;i<pars->snrpopfit_Nnsnr;i++) {
-	pars->snrpopfit_nsnr[i] = atof(p_parse[i]);
+        pars->snrpopfit_nsnr[i] = strtod(p_parse[i], &ptail);
+        if ( p_parse[i] == ptail || *ptail != '\0' ) { /* Invalid input float */
+            fprintf(stderr, "ERROR: Invalid float (%s)\n", p_parse[i]);
+            fprintf(stderr, ERRMSG_INPUT_ERROR, "snrpopfit_nsnr");
+            status = ERRNO_INPUT_ERROR;
+            return(status);
+        }
       }
       free_svector(p_parse);
    }
@@ -74,7 +81,13 @@ int rd_snrpopfit_param( FILE *istream, SNRPOPFITPARS *pars )
       pars->snrpopfit_Nsnrate = splitstr(tmp, p_parse, ",");
       pars->snrpopfit_snrate = dvector(pars->snrpopfit_Nsnrate);
       for (i=0;i<pars->snrpopfit_Nsnrate;i++) {
-	pars->snrpopfit_snrate[i] = atof(p_parse[i]);
+        pars->snrpopfit_snrate[i] = strtod(p_parse[i], &ptail);
+        if ( p_parse[i] == ptail || *ptail != '\0' ) { /* Invalid input float */
+            fprintf(stderr, "ERROR: Invalid float (%s)\n", p_parse[i]);
+            fprintf(stderr, ERRMSG_INPUT_ERROR, "snrpopfit_snrate");
+            status = ERRNO_INPUT_ERROR;
+            return(status);
+        }
       }
       free_svector(p_parse);
    }
@@ -85,7 +98,13 @@ int rd_snrpopfit_param( FILE *istream, SNRPOPFITPARS *pars )
       pars->snrpopfit_Nnambient = splitstr(tmp, p_parse, ",");
       pars->snrpopfit_nambient = dvector(pars->snrpopfit_Nnambient);
       for (i=0;i<pars->snrpopfit_Nnambient;i++) {
-	pars->snrpopfit_nambient[i] = atof(p_parse[i]);
+        pars->snrpopfit_nambient[i] = strtod(p_parse[i], &ptail);
+        if ( p_parse[i] == ptail || *ptail != '\0' ) { /* Invalid input float */
+            fprintf(stderr, "ERROR: Invalid float (%s)\n", p_parse[i]);
+            fprintf(stderr, ERRMSG_INPUT_ERROR, "snrpopfit_nambient");
+            status = ERRNO_INPUT_ERROR;
+            return(status);
+        }
       }
       free_svector(p_parse);
    }

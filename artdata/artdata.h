@@ -5,10 +5,10 @@
 #ifndef _ARTDATA_H_
 #define _ARTDATA_H_
 
-#define BINDIR "/Users/klabrie/prgc/" 
+#define BINDIR "/home/klabrie/prgc/" 
 /* #define SIMBINDIST "stats/simbindist" */
 
-#define DEFAULT_DIR "/Users/klabrie/prgc/bin/"
+#define DEFAULT_DIR "/home/klabrie/prgc/bin/"
 #define DEFAULT_MKSNRPOP_PARS "mksnrpop.param"
 #define DEFAULT_ARTIMG_PARS "artimg.param"
 
@@ -123,6 +123,6 @@ int artimg_xnoise(ARTIMGPARS pars, double **ppix);
 int gcpos(GCPOSPARS *pars, double *gcd, double *gcl);
 int parse_popheader(char line[], KLFITS_HEADER *h);
 int snrdiam(SNRPARS *pars, ASNR *asnr);
-int snrlum(SNRPARS *pars, ASNR *asnr);
+int snrlum(SNRPARS *pars, ASNR *asnr, int FLAGS);
 
 #endif /* _ARTDATA_H_ */

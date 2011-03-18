@@ -8,3 +8,7 @@
 	When the maximum life time support was added, the unlimited lifetime
 	mode was lost.  This mode has been restored.  Setting 'life' to 0
 	is interpreted as unlimited lifetime.
+22 June 2006: v0.1.4
+    Fixed print out of pop info (LIFE was printing nambient); no impact on
+    results.  Suspect that v0.1.3 introduced a bug. Added debug outputs
+    (beware, first try at this was creating Gigabytes of outputs...).

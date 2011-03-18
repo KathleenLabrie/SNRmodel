@@ -1,5 +1,5 @@
 /* Main : mksnrpop */
-/* Version : 0.1.1 */
+/* Version : 0.1.2 */
 /*   Create a population of SNR.  Outputs are in intrinsic physical
  *   units.
  *
@@ -163,6 +163,10 @@ char *argv[];
 	strcpy(inputs.mksnrpop_modlum,p_parse[1]);
 	free_svector(p_parse);
      }
+     else if (!strncmp("--debug",argv[i],7)) {
+        FLAGS |= 1 << DEBUG;
+        FLAGS |= 1 << VERBOSE;
+     }
      else {
      	fprintf(stderr, ERRMSG_INPUT_ERROR, argv[i]);
      	fprintf(stderr,HELP_MKSNRPOP);
@@ -230,7 +234,7 @@ char *argv[];
  snrpars.snr_life = pars.mksnrpop_life;
  strcpy(snrpars.snr_moddiam, pars.mksnrpop_moddiam);
  strcpy(snrpars.snr_modlum, pars.mksnrpop_modlum);
-
+ 
  /* Get four seeds */
  idnum = -(long)time(&now);
  snrpars.snr_seeddiam = -(long)(1e6*ran2(&idnum));
@@ -241,25 +245,78 @@ char *argv[];
  /* Generate SNR population */
  asnr = snrpop;
  for (i=0;i<pars.mksnrpop_nsnr;i++,asnr++) {
+ 
+   fflush(stdout);
+   
    /* Generate galactocentric position for SNR i */
    if ( status = gcpos(&gcpospars, &gcd, &gcl) ) {
-   	pre_exit();
-	exit(status);
+      if (FLAGS & 1 << DEBUG) {
+         printf("DEBUGmksnrpop: MKSNRPOP - snrpars\n");
+         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%d\n", snrpars.snr_nsnr);
+         printf("DEBUGmksnrpop: snrpars.snr_n0=%f\n", snrpars.snr_n0);
+         printf("DEBUGmksnrpop: snrpars.snr_rate=%f\n", snrpars.snr_rate);
+         printf("DEBUGmksnrpop: snrpars.snr_life=%f\n", snrpars.snr_life);
+         printf("DEBUGmksnrpop: snrpars.snr_moddiam=%s\n", snrpars.snr_moddiam);
+         printf("DEBUGmksnrpop: snrpars.snr_modlum=%s\n", snrpars.snr_modlum);
+         printf("DEBUGmksnrpop: \n");
+         printf("DEBUGmksnrpop: Galactocentric position for SNR %d\n", i);
+         printf("DEBUGmksnrpop: asnr.asnr_gcd & gcl = %f %f\n", asnr->asnr_gcd,
+            asnr->asnr_gcl);
+         fflush(stdout);
+      }
+      pre_exit();
+      exit(status);
    }
    asnr->asnr_gcd = gcd;
    asnr->asnr_gcl = gcl;
    
+   
    /* Generate diameter for SNR i */
    if ( status = snrdiam(&snrpars,asnr) ) {
+      if (FLAGS & 1 << DEBUG) {
+         printf("DEBUGmksnrpop: MKSNRPOP - snrpars\n");
+         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%d\n", snrpars.snr_nsnr);
+         printf("DEBUGmksnrpop: snrpars.snr_n0=%f\n", snrpars.snr_n0);
+         printf("DEBUGmksnrpop: snrpars.snr_rate=%f\n", snrpars.snr_rate);
+         printf("DEBUGmksnrpop: snrpars.snr_life=%f\n", snrpars.snr_life);
+         printf("DEBUGmksnrpop: snrpars.snr_moddiam=%s\n", snrpars.snr_moddiam);
+         printf("DEBUGmksnrpop: snrpars.snr_modlum=%s\n", snrpars.snr_modlum);
+         printf("DEBUGmksnrpop: \n");
+         printf("DEBUGmksnrpop: Galactocentric position for SNR %d\n", i);
+         printf("DEBUGmksnrpop: asnr.asnr_gcd & gcl = %f %f\n", asnr->asnr_gcd,
+            asnr->asnr_gcl);
+         printf("DEBUGmksnrpop: Diameter for SNR %d\n", i);
+         printf("DEBUGmksnrpop: asnr.asnr_diameter=%f\n", asnr->asnr_diameter);
+         fflush(stdout);
+      }
    	pre_exit();
-	exit(status);
+      exit(status);
    }
    
+   
    /* Generate a surface brightness for SNR i */
-   if ( status = snrlum(&snrpars,asnr) ) {
+   if ( status = snrlum(&snrpars,asnr,FLAGS) ) {
+      if (FLAGS & 1 << DEBUG) {
+         printf("DEBUGmksnrpop: MKSNRPOP - snrpars\n");
+         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%d\n", snrpars.snr_nsnr);
+         printf("DEBUGmksnrpop: snrpars.snr_n0=%f\n", snrpars.snr_n0);
+         printf("DEBUGmksnrpop: snrpars.snr_rate=%f\n", snrpars.snr_rate);
+         printf("DEBUGmksnrpop: snrpars.snr_life=%f\n", snrpars.snr_life);
+         printf("DEBUGmksnrpop: snrpars.snr_moddiam=%s\n", snrpars.snr_moddiam);
+         printf("DEBUGmksnrpop: snrpars.snr_modlum=%s\n", snrpars.snr_modlum);
+         printf("DEBUGmksnrpop: \n");
+         printf("DEBUGmksnrpop: Galactocentric position for SNR %d\n", i);
+         printf("DEBUGmksnrpop: asnr.asnr_gcd & gcl = %f %f\n", asnr->asnr_gcd,
+            asnr->asnr_gcl);
+         printf("DEBUGmksnrpop: Diameter for SNR %d\n", i);
+         printf("DEBUGmksnrpop: asnr.asnr_diameter=%f\n", asnr->asnr_diameter);
+         printf("DEBUGmksnrpop: Surface brightness for SNR %d\n", i);
+         printf("DEBUGmksnrpop: asnr.asnr_sb=%g\n", asnr->asnr_sb);
+         fflush(stdout);
+      }
    	pre_exit();
-	exit(status);
-   }   
+      exit(status);
+   }
  }
 
  /* Output population */
@@ -305,7 +362,7 @@ int print_header_mksnrpop(FILE *fstream, MKSNRPOPPARS *pars)
  if (fprintf(fstream,"#NSNR\t\t= %d\n",pars->mksnrpop_nsnr) < 0) { status=-1;}
  if (fprintf(fstream,"#SNRATE\t\t= %g\n",pars->mksnrpop_snrate) < 0) { status=-1;}
  if (fprintf(fstream,"#NAMBIENT\t= %g\n",pars->mksnrpop_nambient) < 0) { status=-1;}
- if (fprintf(fstream,"#LIFE\t= %g\n",pars->mksnrpop_nambient) < 0) { status=-1;}
+ if (fprintf(fstream,"#LIFE\t= %g\n",pars->mksnrpop_life) < 0) { status=-1;}
  if (fprintf(fstream,"#MODPOS\t\t= %s\n",pars->mksnrpop_modpos) < 0) { status=-1;}
  if (!strncmp(pars->mksnrpop_modpos,"gaussian",8)) {
     if (fprintf(fstream,"#SCALERAD\t= %g\n",pars->mksnrpop_scalerad) < 0) { status=-1;}

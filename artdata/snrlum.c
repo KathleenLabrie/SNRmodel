@@ -13,11 +13,12 @@
 
 #include "./artdata.h"
 #include "./mksnrpop.h"
+#include <KLutil.h>
 #include <KLran.h>
 #include <math.h>
 #include <float.h>
 
-int snrlum(SNRPARS *pars, ASNR *asnr)
+int snrlum(SNRPARS *pars, ASNR *asnr, int FLAGS)
 {
  int status=0;
  static int iset=0;
@@ -34,7 +35,7 @@ int snrlum(SNRPARS *pars, ASNR *asnr)
  beta = DEFAULT_COMPRESSION_FACTOR;
  n0 = pars->snr_n0;
  life = pars->snr_life;
-
+ 
  if ( !strncmp(pars->snr_modlum, "morel", 5) ) {
     Dpds = 28. * pow(E51,2./7.) * pow(zeta,-1./7.) * pow(n0,-3./7.);
     tsf = 3.61e4* pow(E51,3./14.) * pow(zeta,-5./14.) * pow(n0,-4./7);
@@ -42,6 +43,10 @@ int snrlum(SNRPARS *pars, ASNR *asnr)
     Dlife = 0.;
     if ((life/tpds) > 0.25) {
        Dlife = Dpds* pow((4./3.)*(life/tpds) - (1./3.) , 3./10.);
+    }
+    if (FLAGS & 1 << DEBUG) {
+      printf("DEBUGsnrlum: Dlife = %e\n", Dlife);
+      fflush(stdout);
     }
     /* If SNR is radiative, and has not dissipated away
      * or
@@ -62,9 +67,20 @@ int snrlum(SNRPARS *pars, ASNR *asnr)
        factor = 1.1;
        stddev_factor = 1.;
        stddev_ne = beta * n0 * stddev_factor/factor;
+       
+       if (FLAGS & 1 << DEBUG) {
+         printf("DEBUGsnrlum: deviate, stddev_ne = %e %e\n",deviate,stddev_ne);
+         fflush(stdout);
+       }
+       
        ne = stddev_ne*(double)deviate + beta*n0;
-       if ( ne < 0 ) { ne = 0.; }
+       if ( ne < 0. ) { ne = 0.; }
        lum = factor*ne*LSOLAR;
+       if (FLAGS & 1 << DEBUG) {
+         printf("DEBUGsnrlum: ne, lum = %e %e\n", ne, lum);
+         fflush(stdout);
+       }
+       
        asnr->asnr_sb = lum / (PI/4. * asnr->asnr_diameter*asnr->asnr_diameter);
     } else {
        asnr->asnr_sb = 0.;

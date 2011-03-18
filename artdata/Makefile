@@ -40,7 +40,7 @@ OTHER_FILES = testsnr.pop noiseimg.fits
 BASIC_FILES = Makefile Changes TODO $(PARAM_FILES) $(OTHER_FILES)
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).1.3
+RELEASE = $(VERSION).1.4
 
 #### Object Definitions ####
 OBJ_ARTDATA = rd_param.o artdata.o

@@ -42,8 +42,9 @@ char *argv[];
  int status=0, CHANGE_FLAG=0;
  int i, ii, jj, kk, ll, nimages=0, sh, pad;
  int *imgpos, length;
- long box, shiftx, shifty, firstdx, firstdy;
- unsigned long naxes[2], naxes_img[2], naxes_sec[2], section[4];
+ long int box, shiftx, shifty, firstdx, firstdy;
+ long int naxes[2], naxes_img[2], naxes_sec[2];
+ unsigned long int section[4];
  double **pref=NULL, **pimg=NULL, **pmap=NULL, **pmult=NULL;
  double median, pedestal,cutlevel;
  char **pimages=NULL;
@@ -129,8 +130,8 @@ char *argv[];
  pmap = dmatrix(box*box,6);
  
  /* Allocate memory for the stats section */
- naxes_sec[0]=section[1]-section[0]+1;
- naxes_sec[1]=section[3]-section[2]+1;
+ naxes_sec[0]=(long)(section[1]-section[0]+1);
+ naxes_sec[1]=(long)(section[3]-section[2]+1);
  pmult = dmatrixc(naxes_sec[1],naxes_sec[0]);
 
  /* Read in the reference image */

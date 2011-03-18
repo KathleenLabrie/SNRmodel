@@ -48,7 +48,7 @@ char *argv[];
  int FLAGS, status=0;
  int i,n=0;
  long int nimg=0;
- unsigned long int ii,jj,naxes[2],naxes_out[2];
+ long int ii,jj,naxes[2],naxes_out[2];
  double oob=-999;
  char imglist[MAXLENGTH],outimg[MAXLENGTH];
  

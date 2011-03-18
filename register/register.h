@@ -3,7 +3,7 @@
 #ifndef _REGISTER_H_
 #define _REGISTER_H_
 
-#define BINDIR "/home/labrie/prgc/"
+#define BINDIR "/home/klabrie/prgc/"
 
 #define MAXARG 50
 

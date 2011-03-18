@@ -18,15 +18,16 @@ MAKE = make
 GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
+UNAME = `uname -s`
 OS = redhat
-PREFIX = /home/labrie/prgc
+PREFIX = $(HOME)/prgc
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
-EPREFIX = $(PREFIX)/img/immatch
+EPREFIX = $(PREFIX)
 LPREFIX = $(EPREFIX)
 IPREFIX = $(EPREFIX)
-SPREFIX = $(EPREFIX)
+SPREFIX = $(EPREFIX)/packages
 
 #### Compiler Variable Definitions ####
 CC = gcc
@@ -39,7 +40,7 @@ PKGNAME = register
 BASIC_FILES = Makefile Changes TODO
 DOCS = doc.txt
 VERSION = 0
-RELEASE = $(VERSION).1.2
+RELEASE = $(VERSION).1.3
 
 #### Object Definitions ####
 OBJ_EASYREG = easyreg.o
@@ -89,12 +90,13 @@ all : main
 .PHONY: $(BINS_INSTALL) install install-src install-all
 install : $(BINS_INSTALL)
 $(BINS_INSTALL):
-	install -d -m 0755 $(EPREFIX)
-	install -m 0755 $(subst install_,,$@) $(EPREFIX)/
+	install -d -m 0755 $(EPREFIX)/bin
+	install -m 0755 $(subst install_,,$@) $(EPREFIX)/bin/
+        
 install-src:
-	@install -d -m 0755 $(SPREFIX)/src/$(PKGNAME)
+	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
 	@install -m 0644 $(SRC) $(HEADERS) $(BASIC_FILES) $(DOCS) \
-		$(SPREFIX)/src/$(PKGNAME)/
+		$(SPREFIX)/$(PKGNAME)/
 install-all: install install-src
 	
 

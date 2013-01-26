@@ -24,3 +24,8 @@ May 22, 2006: [v0.2.2]
 Jun 22, 2006: [v0.2.3]
     Added DEBUG outputs.  Check validitity of input floats for 
     snrate,nsnr,nambient.
+#-----------
+24 Jan 2013:
+	From now on, updates are tracked in repository comments.  This
+	file will only contain summaries of relevant changes associated
+	with releases.

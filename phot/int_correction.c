@@ -45,7 +45,7 @@ int int_correction(double lambda, double flux, double flux_err, double CEi,
 /*      kl_err = RV_STARBURST_ERR;*/
    }
    else {
-   	fprintf(stderr,"ERROR: Lambda out of range (%s um).\n",l);
+   	fprintf(stderr,"ERROR: Lambda out of range (%g um).\n",l);
    	return(ERRNO_INPUT_ERROR);
    }
    if ( !(OPTIONS & 1<<NEBULAR) ) { 

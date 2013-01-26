@@ -27,3 +27,8 @@ Main trunk
       used when was simulating SNR populations for the thesis.
     - Remove the changes done in v0.3.3 as they are obviously unnecessary
       since the 'true' v0.3.1 creates a library and all.
+#-----------
+24 Jan 2013:
+	From now on, updates are tracked in repository comments.  This
+	file will only contain summaries of relevant changes associated
+	with releases.

@@ -67,13 +67,13 @@ int aptotflux( double **ppix, long int naxes[], double **pcoo, int idcoo,
 	  dr2 = dx*dx + dy*dy;
 	  alpha = pa*PI/180.-theta;
 	  r2 = top / (a2*cos(alpha)*cos(alpha) + b2*sin(alpha)*sin(alpha));
-	  if (FLAGS & 1<<DEBUG) {fprintf(debug_allpix,"%d  %d  %f  %f\n",ii+1,jj+1,dr2,r2);}
+	  if (FLAGS & 1<<DEBUG) {fprintf(debug_allpix,"%ld  %ld  %f  %f\n",ii+1,jj+1,dr2,r2);}
 	  if (dr2<=r2+DBL_EPSILON) {
             n++;
             res->res_totalflux[i][idcoo] += *(*(ppix+jj)+ii) - res->res_skyperpix[idcoo];
 	    apsumsq += *(*(ppix+jj)+ii) * *(*(ppix+jj)+ii);
 	    apsum += *(*(ppix+jj)+ii);
-	    if (FLAGS & 1<<DEBUG) { fprintf(debug_pixused,"%d  %d\n",ii+1,jj+1);}
+	    if (FLAGS & 1<<DEBUG) { fprintf(debug_pixused,"%ld  %ld\n",ii+1,jj+1);}
 	  }
        }
      }

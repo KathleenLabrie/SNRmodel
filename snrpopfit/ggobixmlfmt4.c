@@ -24,7 +24,7 @@ int ggobixmlfmt4(char filename[], double *v1, double *v2, double *v3,
  strcpy(edgesglyph,"fr 0");
  edgescount = 3*n1*n2*n3 - n2*n3 - n1*n3 - n1*n2;
  if ( (ostream = fopen(filename, "w")) == NULL ) {
- 	fprintf(stderr,ERRMSG_IO_ERROR);
+ 	fprintf(stderr,ERRMSG_IO_ERROR,"");
 	fprintf(stderr,"\tUnable to open %s for writing.\n",filename);
 	return(ERRNO_IO_ERROR);
  }

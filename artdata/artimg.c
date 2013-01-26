@@ -291,7 +291,7 @@ char *argv[];
     if ( (input_naxes[0] != pars.artimg_naxes[0]) || 
          (input_naxes[1] != pars.artimg_naxes[1]) ) {
 	if (FLAGS & 1<<VERBOSE) {
-	  fprintf(stderr,"WARNING: Using input image NAXES values (%d,%d)\n",
+	  fprintf(stderr,"WARNING: Using input image NAXES values (%ld,%ld)\n",
 	  	input_naxes[0],input_naxes[1]);
 	}
 	pars.artimg_naxes[0] = input_naxes[0];

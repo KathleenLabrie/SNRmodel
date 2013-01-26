@@ -17,8 +17,8 @@ GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
 UNAME = `uname -s`
-OS = redhat
-PREFIX = $(HOME)/prgc
+OS = `uname -s`
+PREFIX = $(HOME)/local
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
@@ -110,18 +110,18 @@ test: $(TEST_OBJ)
 ## Installing ##
 .PHONY: install install-src
 install:
-	@install -d -m 0755 $(EPREFIX)/bin
-	@for bin in $(BINS) ; do \
+	install -d -m 0755 $(EPREFIX)/bin
+	for bin in $(BINS) ; do \
 	  install -m 0755 $$bin $(EPREFIX)/bin/; \
 	done
-	@install -d -m 0755 $(EPREFIX)/bin/filters
-	@for filter in $(FILTERS) ; do \
+	install -d -m 0755 $(EPREFIX)/bin/filters
+	for filter in $(FILTERS) ; do \
 	  install -m 0644 $$filter $(EPREFIX)/bin/filters; \
 	done
-	@install -d -m 0755 $(LPREFIX)/lib
-	@install -m 0644 lib$(PKGNAME).a $(LPREFIX)/lib/
-	@install -d -m 0755 $(IPREFIX)/include
-	@install -m 0644 $(PKGNAME).h $(IPREFIX)/include/
+	install -d -m 0755 $(LPREFIX)/lib
+	install -m 0644 lib$(PKGNAME).a $(LPREFIX)/lib/
+	install -d -m 0755 $(IPREFIX)/include
+	install -m 0644 $(PKGNAME).h $(IPREFIX)/include/
 
 install-src:
 	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)

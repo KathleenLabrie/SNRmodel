@@ -44,7 +44,7 @@ int frg_correction(double lambda, double flux, double flux_err, double CEf,
     b = 1.41338*y + 2.28305*y*y + 1.07233*pow(y,3) - 5.38434*pow(y,4) - 
     	0.62251*pow(y,5) + 5.30260*pow(y,6) - 2.09002*pow(y,7);
  } else {
- 	fprintf(stderr,"ERROR: Lambda out of range (%s).\n",lambda);
+ 	fprintf(stderr,"ERROR: Lambda out of range (%g).\n",lambda);
 	return(ERRNO_INPUT_ERROR);
  }
  

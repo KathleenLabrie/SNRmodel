@@ -91,7 +91,7 @@ int fitsky( double **ppix, long int naxes[], double **pcoo, int idcoo,
 	if ( (dr2>=rinner2-DBL_EPSILON) && (dr2<=router2+DBL_EPSILON) ) {
 	  *(skypix+npix)= *(*(ppix+jj)+ii);
 	  npix++;
-	  if (FLAGS & 1<<DEBUG) { fprintf(debug_skypix,"%d  %d\n",ii+1,jj+1); }
+	  if (FLAGS & 1<<DEBUG) { fprintf(debug_skypix,"%ld  %ld\n",ii+1,jj+1); }
 	}
      }   
    }

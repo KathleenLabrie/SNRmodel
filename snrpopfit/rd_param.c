@@ -51,7 +51,7 @@ int rd_snrpopfit_param( FILE *istream, SNRPOPFITPARS *pars )
    }
    else if ( !strncmp(line,"snrpopfit.section=",18) ) {
       pstr = line+18;
-      sscanf(pstr,"[%d:%d,%d:%d]%*s",
+      sscanf(pstr,"[%lu:%lu,%lu:%lu]%*s",
       			&pars->snrpopfit_section[0],
       			&pars->snrpopfit_section[1],
       			&pars->snrpopfit_section[2],

@@ -129,11 +129,11 @@ char *argv[];
       else if (!strncmp("--section", argv[i], 9)) {
          p_parse = svector(2, MAXLENGTH);
          splitstr(argv[i], p_parse, "=");
-         sscanf(p_parse[1], "[%d:%d,%d:%d]%*s\n",
-            inputs.snrpopfit_section[0],
-            inputs.snrpopfit_section[1],
-            inputs.snrpopfit_section[2],
-            inputs.snrpopfit_section[3]);
+         sscanf(p_parse[1], "[%lu:%lu,%lu:%lu]%*s\n",
+            &inputs.snrpopfit_section[0],
+            &inputs.snrpopfit_section[1],
+            &inputs.snrpopfit_section[2],
+            &inputs.snrpopfit_section[3]);
          free_svector(p_parse);
       }
       else if (!strncmp("--nsnr", argv[i], 6)) {
@@ -299,7 +299,7 @@ char *argv[];
  /* DEBUG : Print inputs */
  if (FLAGS & 1 << DEBUG) {
    printf ("DEBUG: Input parameters in SNRPOPFITPARS are:\n");
-   printf ("DEBUG: pars.snrpopfit_section[0-3]=%d %d %d %d\n",
+   printf ("DEBUG: pars.snrpopfit_section[0-3]=%lu %lu %lu %lu\n",
       pars.snrpopfit_section[0], pars.snrpopfit_section[1],
       pars.snrpopfit_section[2], pars.snrpopfit_section[3]);
    printf ("DEBUG: pars.snrpopfit_Nnsnr=%d\n", pars.snrpopfit_Nnsnr);
@@ -409,7 +409,7 @@ char *argv[];
  
    fflush(stdout);
    if ( FLAGS & 1 << VERBOSE ) {
-      printf("Working on simulation %d, index %d ... ", isim, index);
+      printf("Working on simulation %lu, index %lu ... ", isim, index);
       fflush(stdout);
       
    }
@@ -446,7 +446,7 @@ char *argv[];
          fflush(stdout);
          fprintf(stderr, "\nERROR: Child-process error (%s)\n", MKSNRPOP);
          if (FLAGS & 1 << DEBUG) {
-            printf("DEBUGsnrpopfit: isim, index, nsnr, snrate, nambient = %d %d %f %f %f\n",
+            printf("DEBUGsnrpopfit: isim, index, nsnr, snrate, nambient = %lu %lu %f %f %f\n",
                isim, index, nsnr, snrate, nambient);
             printf("DEBUG: simpop_command = %s\n", simpop_command);
             fflush(stdout);
@@ -458,7 +458,7 @@ char *argv[];
          fflush(stdout);
          fprintf(stderr, "\nERROR: Child-process error (%s)\n", ARTIMG);
          if (FLAGS & 1 << DEBUG) {
-            printf("DEBUGsnrpopfit: isim, index, nsnr, snrate, nambient = %d %d %f %f %f\n",
+            printf("DEBUGsnrpopfit: isim, index, nsnr, snrate, nambient = %lu %lu %f %f %f\n",
                isim, index, nsnr, snrate, nambient);
             printf("DEBUG: simimg_command = %s\n", simimg_command);
             fflush(stdout);
@@ -544,7 +544,7 @@ char *argv[];
    }}}  /* End loop over parameter space */
 
    /* Print chi2 and prob maps to files */
-   sprintf(output, "%schisq%d.dat", pars.snrpopfit_output, index);
+   sprintf(output, "%schisq%lu.dat", pars.snrpopfit_output, index);
    if (status = wrcube(output, NULL, NULL, pchi2, pars.snrpopfit_nsnr,
          pars.snrpopfit_snrate, pars.snrpopfit_nambient,
          pars.snrpopfit_Nnsnr, pars.snrpopfit_Nsnrate,
@@ -552,7 +552,7 @@ char *argv[];
       pre_exit();
       exit(status);
    }
-   sprintf(output, "%sprob%d.dat", pars.snrpopfit_output, index);
+   sprintf(output, "%sprob%lu.dat", pars.snrpopfit_output, index);
    if (status = wrcube(output, NULL, NULL, pprob, pars.snrpopfit_nsnr,
          pars.snrpopfit_snrate, pars.snrpopfit_nambient,
          pars.snrpopfit_Nnsnr, pars.snrpopfit_Nsnrate,
@@ -562,7 +562,7 @@ char *argv[];
    }
 
    /* Print chi2ap and probap maps to files */
-   sprintf(output, "%schisqap%d.dat", pars.snrpopfit_output, index);
+   sprintf(output, "%schisqap%lu.dat", pars.snrpopfit_output, index);
    if (status = wrcube(output, NULL, NULL, pchi2ap,pars.snrpopfit_nsnr,
  		   pars.snrpopfit_snrate, pars.snrpopfit_nambient,
 		   pars.snrpopfit_Nnsnr, pars.snrpopfit_Nsnrate,
@@ -570,7 +570,7 @@ char *argv[];
       pre_exit();
       exit(status);
    }
-   sprintf(output, "%sprobap%d.dat", pars.snrpopfit_output, index);
+   sprintf(output, "%sprobap%lu.dat", pars.snrpopfit_output, index);
    if (status = wrcube(output, NULL, NULL, pprobap, pars.snrpopfit_nsnr,
          pars.snrpopfit_snrate, pars.snrpopfit_nambient,
          pars.snrpopfit_Nnsnr, pars.snrpopfit_Nsnrate,

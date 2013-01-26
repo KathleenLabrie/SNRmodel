@@ -17,8 +17,8 @@ GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
 UNAME = `uname -s`
-OS = redhat
-PREFIX = $(HOME)/prgc
+OS = `uname -s`
+PREFIX = $(HOME)/local
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
@@ -100,26 +100,26 @@ all : main
 ## Installing ##
 .PHONY: install install-src install-all
 install:
-	@install -d -m 0755 $(EPREFIX)/bin
-	@for bin in $(BINS) ; do \
+	install -d -m 0755 $(EPREFIX)/bin
+	for bin in $(BINS) ; do \
           install -m 0755 $$bin $(EPREFIX)/bin/; \
         done
-	@for file in $(PARAM_FILES) ; do \
+	for file in $(PARAM_FILES) ; do \
           install -m 0644 $$file $(EPREFIX)/bin/; \
         done
 
 install-src:
-	@install -d -m 0755 $(SPREFIX)/$(PKGNAME)
-	@for src in $(SRCS) ; do \
+	install -d -m 0755 $(SPREFIX)/$(PKGNAME)
+	for src in $(SRCS) ; do \
           install -m 0644 $$src $(SPREFIX)/$(PKGNAME); \
         done
-	@for file in $(HEADERS) ; do \
+	for file in $(HEADERS) ; do \
           install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
         done
-	@for file in $(BASIC_FILES) ; do \
+	for file in $(BASIC_FILES) ; do \
           install -m 0644 $$file $(SPREFIX)/$(PKGNAME); \
         done
-	@for file in $(DOCS) ; do \
+	for file in $(DOCS) ; do \
           install -m 0644 $$file $(SPREFIX)/$(PKGNAME)/; \
         done
 

@@ -20,8 +20,8 @@ GZIP = gzip -S .gz
 
 #### Environment Variable Definitions ####
 UNAME = `uname -s`
-OS = redhat
-PREFIX = $(HOME)/prgc
+OS = `uname -s`
+PREFIX = $(HOME)/local
 INCLDIR = $(PREFIX)/include
 LIBDIR = $(PREFIX)/lib
 
@@ -34,9 +34,9 @@ SPREFIX = $(EPREFIX)/packages
 
 #### Compiler Variable Definitions ####
 CC = gcc
-CFLAGS = -g -O2 -I./ -I$(INCLDIR) -I$(PGPLOT_DIR)
+CFLAGS = -g -O2 -I./ -I$(INCLDIR) #-I$(PGPLOT_DIR)
 FC = g77
-FFLAGS = -g -O2 -I$(PGPLOT_DIR)
+FFLAGS = -g -O2 #-I$(PGPLOT_DIR)
 
 ################## DO NOT EDIT BELOW THIS LINE ##################
 
@@ -60,7 +60,7 @@ OBJ_SNRPOPFIT = snrpopfit.o rd_param.o aperture_phot.o
 OBJ_SNRPOPBFIT = snrpopbfit.o
 OBJ_PLOT = plotsurf.o ggobixmlfmt4.o
 FOBJ_PLOT = pgplot2d.o
-OBJECTS = $(OBJ_SNRPOPFIT) $(OBJ_SNRPOPBFIT) $(OBJ_PLOT)
+OBJECTS = $(OBJ_SNRPOPFIT) $(OBJ_SNRPOPBFIT) #$(OBJ_PLOT)
 FOBJECTS = $(FOBJ_PLOT) 
 SRCS = $(OBJECTS:.o=.c) $(FOBJECTS:.o=.f)
 HEADERS = $(PKGNAME).h rd_param.h
@@ -80,7 +80,7 @@ PGXTAL_OBJ = /usr/local/src/pgxtal/plot2db3.o /usr/local/src/pgxtal/pgcell.o \
 %.o : %.f
 	$(FC) -c $(FFLAGS) $<
 
-main : configure $(OBJECTS) $(FOBJECTS) $(BINS)
+main : configure $(OBJECTS) $(BINS) #$(FOBJECTS) $(OBJ_PLOT)
 
 .PHONY: configure
 configure:
@@ -119,11 +119,11 @@ all : main
 ## Installing ##
 .PHONY: install install-src
 install:
-	@install -d -m 0755 $(EPREFIX)/bin
-	@for bin in $(BINS) ; do \
+	install -d -m 0755 $(EPREFIX)/bin
+	for bin in $(BINS) ; do \
 	  install -m 0755 $$bin $(EPREFIX)/bin; \
 	done
-	@for file in $(PARAM_FILES) ; do \
+	for file in $(PARAM_FILES) ; do \
 	  install -m 0644 $$file $(EPREFIX)/bin; \
 	done
 

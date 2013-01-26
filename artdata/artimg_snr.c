@@ -54,7 +54,7 @@ int artimg_snr(FILE *fstream, ARTIMGPARS pars, double **ppix,
    }
    ncol = splitstr(line,p_parse,SPACES);
    if (ncol != MKSNRPOP_OUTPUT_NCOL) {
-   	fprintf(stderr,ERRMSG_INPUT_ERROR);
+   	fprintf(stderr,ERRMSG_INPUT_ERROR,"");
 	return(ERRNO_INPUT_ERROR);
    }
    gcd = atof(p_parse[0]);

@@ -5,13 +5,13 @@
 
 #include "./rd_param.h"
 
-#define BINDIR "/home/klabrie/prgc/"
+#define BINDIR "/Users/klabrie/local/"
 
-#define DEFAULT_DIR "/home/klabrie/prgc/bin/"
+#define DEFAULT_DIR "/Users/klabrie/local/bin/"
 #define DEFAULT_SNRPOPFIT_PARS "snrpopfit.param"
 
-#define MKSNRPOP "/home/klabrie/prgc/bin/mksnrpop"
-#define ARTIMG "/home/klabrie/prgc/bin/artimg"
+#define MKSNRPOP "/Users/klabrie/local/bin/mksnrpop"
+#define ARTIMG "/Users/klabrie/local/bin/artimg"
 
 #define MAXPOP 30
 

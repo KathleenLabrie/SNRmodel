@@ -252,7 +252,7 @@ char *argv[];
    if ( status = gcpos(&gcpospars, &gcd, &gcl) ) {
       if (FLAGS & 1 << DEBUG) {
          printf("DEBUGmksnrpop: MKSNRPOP - snrpars\n");
-         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%d\n", snrpars.snr_nsnr);
+         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%ld\n", snrpars.snr_nsnr);
          printf("DEBUGmksnrpop: snrpars.snr_n0=%f\n", snrpars.snr_n0);
          printf("DEBUGmksnrpop: snrpars.snr_rate=%f\n", snrpars.snr_rate);
          printf("DEBUGmksnrpop: snrpars.snr_life=%f\n", snrpars.snr_life);
@@ -275,7 +275,7 @@ char *argv[];
    if ( status = snrdiam(&snrpars,asnr) ) {
       if (FLAGS & 1 << DEBUG) {
          printf("DEBUGmksnrpop: MKSNRPOP - snrpars\n");
-         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%d\n", snrpars.snr_nsnr);
+         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%ld\n", snrpars.snr_nsnr);
          printf("DEBUGmksnrpop: snrpars.snr_n0=%f\n", snrpars.snr_n0);
          printf("DEBUGmksnrpop: snrpars.snr_rate=%f\n", snrpars.snr_rate);
          printf("DEBUGmksnrpop: snrpars.snr_life=%f\n", snrpars.snr_life);
@@ -298,7 +298,7 @@ char *argv[];
    if ( status = snrlum(&snrpars,asnr,FLAGS) ) {
       if (FLAGS & 1 << DEBUG) {
          printf("DEBUGmksnrpop: MKSNRPOP - snrpars\n");
-         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%d\n", snrpars.snr_nsnr);
+         printf("DEBUGmksnrpop: snrpars.snr_nsnr=%ld\n", snrpars.snr_nsnr);
          printf("DEBUGmksnrpop: snrpars.snr_n0=%f\n", snrpars.snr_n0);
          printf("DEBUGmksnrpop: snrpars.snr_rate=%f\n", snrpars.snr_rate);
          printf("DEBUGmksnrpop: snrpars.snr_life=%f\n", snrpars.snr_life);
@@ -359,7 +359,7 @@ int print_header_mksnrpop(FILE *fstream, MKSNRPOPPARS *pars)
 {
  int status=0;
  
- if (fprintf(fstream,"#NSNR\t\t= %d\n",pars->mksnrpop_nsnr) < 0) { status=-1;}
+ if (fprintf(fstream,"#NSNR\t\t= %ld\n",pars->mksnrpop_nsnr) < 0) { status=-1;}
  if (fprintf(fstream,"#SNRATE\t\t= %g\n",pars->mksnrpop_snrate) < 0) { status=-1;}
  if (fprintf(fstream,"#NAMBIENT\t= %g\n",pars->mksnrpop_nambient) < 0) { status=-1;}
  if (fprintf(fstream,"#LIFE\t= %g\n",pars->mksnrpop_life) < 0) { status=-1;}
@@ -383,7 +383,7 @@ int print_header_mksnrpop(FILE *fstream, MKSNRPOPPARS *pars)
  if (fprintf(fstream,"#GCD[pc]  GCL[deg]  D[pc]  SB[W/pc2]\n") < 0) { status=-1;}
 
  if (status < 0) { 
- 	fprintf(stderr,ERRMSG_IO_ERROR);
+ 	fprintf(stderr,"%s",ERRMSG_IO_ERROR);
  	status = ERRNO_IO_ERROR;
  }
  return(status);

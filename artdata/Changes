@@ -12,3 +12,8 @@
     Fixed print out of pop info (LIFE was printing nambient); no impact on
     results.  Suspect that v0.1.3 introduced a bug. Added debug outputs
     (beware, first try at this was creating Gigabytes of outputs...).
+#-----------
+24 Jan 2013:
+	From now on, updates are tracked in repository comments.  This
+	file will only contain summaries of relevant changes associated
+	with releases.

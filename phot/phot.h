@@ -11,7 +11,7 @@
 #define MAX_N_COORDS 1000
 #define FITSKY_TOLERANCE 1e-3
 
-#define DEFAULT_DIR "/home/klabrie/prgc/bin/"
+#define DEFAULT_DIR "/Users/klabrie/local/bin/"
 #define DEFAULT_APPHOT_PARS "apphot.param"
 #define DEFAULT_DATA_PARS "data.param"
 #define DEFAULT_FITSKY_PARS "fitsky.param"

@@ -127,8 +127,8 @@ char *argv[];
  	fprintf(stderr,ERRMSG_IO_ERROR,listname);
 	exit(ERRNO_IO_ERROR);
  }
- fscanf(istream,"%d %*d %*d\n",&nfit);
- if (FLAGS & 1 << VERBOSE) fprintf(stdout,"Found %d fit files\n",nfit);
+ fscanf(istream,"%lu %*d %*d\n",&nfit);
+ if (FLAGS & 1 << VERBOSE) fprintf(stdout,"Found %lu fit files\n",nfit);
  filelist = svector(nfit,MAXLENGTH);
  p_parse = svector(1,MAXLENGTH);
  n=0;

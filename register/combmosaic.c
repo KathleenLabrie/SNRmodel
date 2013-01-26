@@ -107,7 +107,7 @@ char *argv[];
  /* Open and read imglist, if required */
  if ( strlen(imglist) != 0 ) {
     if (n > 0) {
-    	fprintf(stderr,ERRMSG_INPUT_ERROR);
+    	fprintf(stderr,ERRMSG_INPUT_ERROR,"");
 	fprintf(stderr,"You cannot define images AND a list of images\n");
 	pre_exit();
 	exit(ERRNO_INPUT_ERROR);

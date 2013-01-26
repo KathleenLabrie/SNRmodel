@@ -137,7 +137,7 @@ char *argv[];
  }
  
  if (apphotpars.apphot_n <=0 ) {
-    fprintf(stderr,ERRMSG_INPUT_ERROR);
+    fprintf(stderr,ERRMSG_INPUT_ERROR,"");
     fprintf(stderr,"\tNo images specified\n");
     exit(ERRNO_INPUT_ERROR);
  }

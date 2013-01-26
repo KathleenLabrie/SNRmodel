@@ -3,6 +3,7 @@
 - Use UNAME to set OS.
 - Get pgxtal, and package it with this code.  Too obscure.
 - Set location of mksnrpop and artimg automatically.
+- write configure script
 
 BUGS
 - I believe there is a memory leak.  When a large number of models are
